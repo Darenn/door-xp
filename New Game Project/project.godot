@@ -1,0 +1,85 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "CommandRef",
+"language": "GDScript",
+"path": "res://Console/ConsoleCommandRef.gd"
+}, {
+"base": "Control",
+"class": "Console",
+"language": "GDScript",
+"path": "res://Console/Console.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleChannel",
+"language": "GDScript",
+"path": "res://Console/ConsoleChannel.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleColor",
+"language": "GDScript",
+"path": "res://Console/ConsoleColors.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleCommand",
+"language": "GDScript",
+"path": "res://Console/ConsoleCommand.gd"
+}, {
+"base": "Node",
+"class": "ConsoleDefaultCommands",
+"language": "GDScript",
+"path": "res://Console/DefaultCommands.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleFlags",
+"language": "GDScript",
+"path": "res://Console/ConsoleFlags.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleTheme",
+"language": "GDScript",
+"path": "res://Console/ConsoleThemes.gd"
+}, {
+"base": "Reference",
+"class": "ConsoleUserRight",
+"language": "GDScript",
+"path": "res://Console/ConsoleUserRight.gd"
+}, {
+"base": "Reference",
+"class": "Dockings",
+"language": "GDScript",
+"path": "res://Console/ConsoleDockings.gd"
+} ]
+_global_script_class_icons={
+"CommandRef": "",
+"Console": "",
+"ConsoleChannel": "",
+"ConsoleColor": "",
+"ConsoleCommand": "",
+"ConsoleDefaultCommands": "",
+"ConsoleFlags": "",
+"ConsoleTheme": "",
+"ConsoleUserRight": "",
+"Dockings": ""
+}
+
+[application]
+
+config/name="gmtk_jam_2020"
+config/icon="res://icon.png"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
