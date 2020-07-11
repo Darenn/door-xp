@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name NME
+
 export(Vector2) var starting_direction = Vector2.DOWN
 export(int) var speed = 50
 

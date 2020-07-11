@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Viruses/NME.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Viruses/Enemy2.1.png" type="Texture" id=2]
@@ -13,6 +13,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 9.32336
 
 [node name="Virus" type="Node2D"]
 script = ExtResource( 1 )
@@ -63,6 +66,14 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.03, 0.03 )
 frames = SubResource( 2 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 1.51149, -2.07829 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="AreaRight" to="." method="_on_AreaRight_body_entered"]
 [connection signal="body_exited" from="AreaRight" to="." method="_on_AreaRight_body_exited"]
 [connection signal="body_entered" from="AreaLeft" to="." method="_on_AreaLeft_body_entered"]

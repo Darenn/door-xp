@@ -8,6 +8,7 @@ func _ready() -> void:
 	$CollisionShape2D.disabled = true
 	$SpriteDoorOpen.visible = true
 	$SpriteDoorClosed.visible = false
+	$Label.text = id
 
 func close() -> void:
 	$CollisionShape2D.disabled = false

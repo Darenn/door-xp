@@ -25,3 +25,18 @@ texture = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0.980392, 0.0392157, 0.0392157, 1 )
+text = "d1"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.5
+__meta__ = {
+"_edit_use_anchors_": false
+}

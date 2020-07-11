@@ -58,6 +58,11 @@ _global_script_classes=[ {
 "class": "Dockings",
 "language": "GDScript",
 "path": "res://Console/ConsoleDockings.gd"
+}, {
+"base": "Node2D",
+"class": "NME",
+"language": "GDScript",
+"path": "res://Entities/Viruses/NME.gd"
 } ]
 _global_script_class_icons={
 "CommandRef": "",
@@ -69,7 +74,8 @@ _global_script_class_icons={
 "ConsoleFlags": "",
 "ConsoleTheme": "",
 "ConsoleUserRight": "",
-"Dockings": ""
+"Dockings": "",
+"NME": ""
 }
 
 [application]
@@ -94,6 +100,8 @@ window/stretch/aspect="keep"
 2d_physics/layer_2="NMEs"
 2d_physics/layer_3="Core"
 2d_physics/layer_4="Doors"
+2d_physics/layer_5="Traps"
+2d_physics/layer_6="NMEs Hurtbox"
 
 [rendering]
 
