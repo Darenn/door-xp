@@ -9,8 +9,10 @@ script = ExtResource( 1 )
 [node name="Console" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 362.0
-margin_bottom = 275.0
+margin_left = 24.8441
+margin_top = 16.0
+margin_right = 836.844
+margin_bottom = 626.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 userName = "FSociety"

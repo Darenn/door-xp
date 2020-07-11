@@ -4,19 +4,17 @@
 [ext_resource path="res://Entities/Viruses/virus.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 11.3535, 2.17215 )
+extents = Vector2( 14.4297, 6.42258 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 9.32336
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14.1188, 15.8 )
 
 [node name="Virus" type="Node2D"]
 script = ExtResource( 1 )
-speed = 25
+speed = 63
 
 [node name="virus" type="Sprite" parent="."]
-modulate = Color( 0, 100, 0.04, 1 )
-position = Vector2( 1.2758, -4.29133 )
-scale = Vector2( 0.05, 0.05 )
+modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 2 )
 
 [node name="AreaRight" type="Area2D" parent="."]
@@ -25,7 +23,7 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionRight" type="CollisionShape2D" parent="AreaRight"]
-position = Vector2( 426.709, -68.371 )
+position = Vector2( 1114.23, -47.9085 )
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 2 )
 
@@ -35,7 +33,7 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionLeft" type="CollisionShape2D" parent="AreaLeft"]
-position = Vector2( -313.023, -68.371 )
+position = Vector2( -1225.38, -57.019 )
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 2 )
 
@@ -45,7 +43,7 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionUp" type="CollisionShape2D" parent="AreaUp"]
-position = Vector2( 39.8272, -371.07 )
+position = Vector2( 7.54053, -1134.39 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 2 )
@@ -56,7 +54,7 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionDown" type="CollisionShape2D" parent="AreaDown"]
-position = Vector2( 47.1369, 218.585 )
+position = Vector2( -11.8872, 1085.91 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 2 )
@@ -66,7 +64,7 @@ collision_layer = 32
 collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 1.51149, -2.07829 )
+position = Vector2( -0.0586165, 4.83017 )
 shape = SubResource( 3 )
 [connection signal="body_entered" from="AreaRight" to="." method="_on_AreaRight_body_entered"]
 [connection signal="body_exited" from="AreaRight" to="." method="_on_AreaRight_body_exited"]

@@ -12,11 +12,14 @@ next_level = "5_userspace"
 hint = "You close only one door at the same time! Close d1, reopen it and close d2."
 welcome_message = "System loaded, ready to start."
 
-[node name="FloorTileMap" parent="." index="1"]
+[node name="FloorTileMap" parent="." index="4"]
 tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 393241, 1, 0, 393242, 1, 0, 393243, 1, 0, 458761, 0, 0, 458774, 0, 0, 458776, 1, 0, 458779, 1, 0, 524297, 0, 0, 524310, 0, 0, 524312, 1, 0, 524315, 1, 0, 589833, 0, 0, 589846, 0, 0, 589848, 1, 0, 589851, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655387, 1, 0, 720920, 1, 0, 720923, 1, 0, 786456, 1, 0, 786457, 1, 0, 786458, 1, 0, 786459, 1, 0 )
 
-[node name="CollisionTileMap" parent="." index="2"]
+[node name="CollisionTileMap" parent="." index="5"]
 tile_data = PoolIntArray( 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 393235, 0, 0, 393244, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458777, 0, 0, 458778, 0, 0, 458780, 0, 0, 524311, 0, 0, 524313, 0, 0, 524314, 0, 0, 524316, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 589849, 0, 0, 589850, 0, 0, 589852, 0, 0, 655381, 0, 0, 655385, 0, 0, 655386, 0, 0, 655388, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720921, 0, 0, 720922, 0, 0, 720924, 0, 0, 786455, 0, 0, 786460, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0 )
+
+[node name="Core" parent="." index="6" instance=ExtResource( 1 )]
+position = Vector2( 879.779, 304.71 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 816.081, 207.369 )
@@ -30,7 +33,4 @@ position = Vector2( 653.822, 210.157 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
 position = Vector2( 720.6, 335.336 )
-
-[node name="Core" parent="." index="6" instance=ExtResource( 1 )]
-position = Vector2( 879.779, 304.71 )
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]

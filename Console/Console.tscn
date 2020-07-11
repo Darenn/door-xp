@@ -156,8 +156,8 @@ __meta__ = {
 }
 
 [node name="TitleBar" type="Control" parent="Control/VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 15.0
+margin_right = 1920.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
@@ -210,9 +210,9 @@ __meta__ = {
 }
 
 [node name="ConsoleContainer" type="Control" parent="Control/VBoxContainer"]
-margin_top = 15.0
-margin_right = 1024.0
-margin_bottom = 275.0
+margin_top = 42.0
+margin_right = 1920.0
+margin_bottom = 755.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 25.0
@@ -290,7 +290,7 @@ __meta__ = {
 }
 
 [node name="ChannelSelector" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
-margin_right = 78.0
+margin_right = 147.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -318,8 +318,8 @@ __meta__ = {
 }
 
 [node name="Input" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
-margin_left = 80.0
-margin_right = 1024.0
+margin_left = 149.0
+margin_right = 1920.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

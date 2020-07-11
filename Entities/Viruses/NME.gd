@@ -46,6 +46,15 @@ func _process(delta: float) -> void:
 		else:
 			_direction = old_direction
 	position += _direction * speed * delta
+	match _direction:
+		Vector2.UP:
+			$virus.rotation_degrees = 0
+		Vector2.DOWN:
+			$virus.rotation_degrees = 180
+		Vector2.LEFT: 
+			$virus.rotation_degrees = 270
+		Vector2.RIGHT:
+			$virus.rotation_degrees = 90
 
 func set_active(value: bool) -> void:
 	is_active = value
