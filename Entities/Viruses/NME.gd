@@ -13,6 +13,22 @@ var _available_directions = [Vector2.DOWN, Vector2.UP, Vector2.RIGHT, Vector2.LE
 
 func _ready() -> void:
 	pass # Replace with function body.
+	
+
+func _physics_process(delta: float) -> void:
+	_available_directions = [Vector2.DOWN, Vector2.UP, Vector2.RIGHT, Vector2.LEFT]
+	if $AreaDown.get_overlapping_bodies().size() > 0:
+		_available_directions.erase(Vector2.DOWN)
+		
+	if $AreaLeft.get_overlapping_bodies().size() > 0:
+		_available_directions.erase(Vector2.LEFT)
+		
+	if $AreaUp.get_overlapping_bodies().size() > 0:
+		_available_directions.erase(Vector2.UP)
+		
+	if $AreaRight.get_overlapping_bodies().size() > 0:
+		_available_directions.erase(Vector2.RIGHT)
+		
 
 func _process(delta: float) -> void:
 	if not is_active:
@@ -31,33 +47,33 @@ func set_active(value: bool) -> void:
 	is_active = value
 	
 
-func _on_AreaRight_body_entered(body: Node) -> void:
-	_available_directions.erase(Vector2.RIGHT)
-
-
-func _on_AreaRight_body_exited(body: Node) -> void:
-	_available_directions.append(Vector2.RIGHT)
-
-
-func _on_AreaLeft_body_entered(body: Node) -> void:
-	_available_directions.erase(Vector2.LEFT)
-
-
-func _on_AreaLeft_body_exited(body: Node) -> void:
-	_available_directions.append(Vector2.LEFT)
-
-
-func _on_AreaUp_body_entered(body: Node) -> void:
-	_available_directions.erase(Vector2.UP)
-
-
-func _on_AreaUp_body_exited(body: Node) -> void:
-	_available_directions.append(Vector2.UP)
-
-
-func _on_AreaDown_body_entered(body: Node) -> void:
-	_available_directions.erase(Vector2.DOWN)
-
-
-func _on_AreaDown_body_exited(body: Node) -> void:
-	_available_directions.append(Vector2.DOWN)
+#func _on_AreaRight_body_entered(body: Node) -> void:
+#	_available_directions.erase(Vector2.RIGHT)
+#
+#
+#func _on_AreaRight_body_exited(body: Node) -> void:
+#	_available_directions.append(Vector2.RIGHT)
+#
+#
+#func _on_AreaLeft_body_entered(body: Node) -> void:
+#	_available_directions.erase(Vector2.LEFT)
+#
+#
+#func _on_AreaLeft_body_exited(body: Node) -> void:
+#	_available_directions.append(Vector2.LEFT)
+#
+#
+#func _on_AreaUp_body_entered(body: Node) -> void:
+#	_available_directions.erase(Vector2.UP)
+#
+#
+#func _on_AreaUp_body_exited(body: Node) -> void:
+#	_available_directions.append(Vector2.UP)
+#
+#
+#func _on_AreaDown_body_entered(body: Node) -> void:
+#	_available_directions.erase(Vector2.DOWN)
+#
+#
+#func _on_AreaDown_body_exited(body: Node) -> void:
+#	_available_directions.append(Vector2.DOWN)
