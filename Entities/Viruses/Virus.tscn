@@ -1,25 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Entities/Viruses/NME.gd" type="Script" id=1]
-[ext_resource path="res://Entities/Viruses/Enemy2.1.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Viruses/virus.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11.3535, 2.17215 )
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 9.32336
 
 [node name="Virus" type="Node2D"]
 script = ExtResource( 1 )
 speed = 25
+
+[node name="virus" type="Sprite" parent="."]
+modulate = Color( 0, 100, 0.04, 1 )
+position = Vector2( 1.2758, -4.29133 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
 
 [node name="AreaRight" type="Area2D" parent="."]
 scale = Vector2( 0.03, 0.03 )
@@ -29,7 +27,7 @@ collision_mask = 9
 [node name="CollisionRight" type="CollisionShape2D" parent="AreaRight"]
 position = Vector2( 426.709, -68.371 )
 scale = Vector2( 33.3333, 33.3333 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AreaLeft" type="Area2D" parent="."]
 scale = Vector2( 0.03, 0.03 )
@@ -39,7 +37,7 @@ collision_mask = 9
 [node name="CollisionLeft" type="CollisionShape2D" parent="AreaLeft"]
 position = Vector2( -313.023, -68.371 )
 scale = Vector2( 33.3333, 33.3333 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AreaUp" type="Area2D" parent="."]
 scale = Vector2( 0.03, 0.03 )
@@ -50,7 +48,7 @@ collision_mask = 9
 position = Vector2( 39.8272, -371.07 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AreaDown" type="Area2D" parent="."]
 scale = Vector2( 0.03, 0.03 )
@@ -61,11 +59,7 @@ collision_mask = 9
 position = Vector2( 47.1369, 218.585 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
-shape = SubResource( 3 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.03, 0.03 )
-frames = SubResource( 2 )
+shape = SubResource( 2 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 32
@@ -73,7 +67,7 @@ collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 1.51149, -2.07829 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="AreaRight" to="." method="_on_AreaRight_body_entered"]
 [connection signal="body_exited" from="AreaRight" to="." method="_on_AreaRight_body_exited"]
 [connection signal="body_entered" from="AreaLeft" to="." method="_on_AreaLeft_body_entered"]

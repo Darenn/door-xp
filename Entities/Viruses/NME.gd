@@ -35,12 +35,16 @@ func _process(delta: float) -> void:
 		return
 	# If we detect a wall in our current direction, change direction
 	if not _available_directions.has(_direction):
+		var old_direction = _direction
 		var favorite_directions = _available_directions.duplicate()
 		# Avoid turn down
 		favorite_directions.erase(-_direction)
 		if favorite_directions.size() == 0:
 			favorite_directions = _available_directions.duplicate()
-		_direction = favorite_directions[randi() % favorite_directions.size()]
+		if favorite_directions.size() > 0:
+			_direction = favorite_directions[randi() % favorite_directions.size()]
+		else:
+			_direction = old_direction
 	position += _direction * speed * delta
 
 func set_active(value: bool) -> void:

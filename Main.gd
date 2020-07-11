@@ -1,6 +1,8 @@
 extends Node2D
 
 export(String) var next_level
+export(String) var hint
+export(String) var welcome_message
 
 onready var _console = $GUI/DebugConsole/Console
 onready var _console_writer = $GUI/DebugConsole
@@ -12,29 +14,37 @@ var _is_game_over = false
 var _last_door_closed = null
 
 func _ready() -> void:
+	_console_writer.write_line(welcome_message)
+	print(OS.get_user_data_dir())
+	
 	# start
 	var startRef = CommandRef.new(self, "_start", 0)
-	var startCommand = ConsoleCommand.new("start", startRef, "Start the loaded level.")
+	var startCommand = ConsoleCommand.new("start", startRef, "Start the loaded level. -> start")
 	_console.add_command(startCommand)
 	
 	# load [level1]
 	var loadRef = CommandRef.new(self, "_load", 1)
-	var loadCommand = ConsoleCommand.new("load", loadRef, "Load the given level.")
+	var loadCommand = ConsoleCommand.new("load", loadRef, "Load the given level. -> load 1_boot")
 	_console.add_command(loadCommand)
 	
 	# reload
 	var reloadRef = CommandRef.new(self, "_reload", 0)
-	var reloadCommand = ConsoleCommand.new("reload", reloadRef, "Reload the current level.")
+	var reloadCommand = ConsoleCommand.new("reload", reloadRef, "Reload the current level. -> reload")
 	_console.add_command(reloadCommand)
+	
+	# hint
+	var hintRef = CommandRef.new(self, "_hint", 0)
+	var hintCommand = ConsoleCommand.new("hint", hintRef, "Give you hints about the current level. -> hint")
+	_console.add_command(hintCommand)
 	
 	# open_door [d1]
 	var openDoorRef = CommandRef.new(self, "_open_door", 1)
-	var openDoorCommand = ConsoleCommand.new("open_door", openDoorRef, "Open the given door (id).")
+	var openDoorCommand = ConsoleCommand.new("open", openDoorRef, "Open the given door. -> open d1")
 	_console.add_command(openDoorCommand)
 	
 	# close_door [d1]
 	var closeDoorRef = CommandRef.new(self, "_close_door", 1)
-	var closeDoorCommand = ConsoleCommand.new("close_door", closeDoorRef, "Close the given door (id).")
+	var closeDoorCommand = ConsoleCommand.new("close", closeDoorRef, "Close the given door. -> close d1")
 	_console.add_command(closeDoorCommand)
 
 func _process(delta: float) -> void:
@@ -44,11 +54,13 @@ func _process(delta: float) -> void:
 	
 func _win() -> void:
 	_is_game_over = true
-	_console_writer.success("You won! Next level is : '%s'." % next_level)
+	_console_writer.success("You secured this system! Next level is : '%s'." % next_level)
 
 func _start() -> void:
 	if _is_started:
 		_console_writer.error("Level has already started.")
+	elif _viruses.get_child_count() == 0:
+		_console_writer.error("You must load a level before starting it.")
 	else:
 		for virus in _viruses.get_children():
 			virus.set_active(true)
@@ -65,6 +77,9 @@ func _load(level: String) -> void:
 		
 func _reload() -> void:
 	get_tree().reload_current_scene()
+	
+func _hint() -> void:
+	_console_writer.success(hint)	
 	
 func _open_door(id: String) -> void:
 	id = id.to_lower()
@@ -88,6 +103,9 @@ func _close_door(id: String) -> void:
 				if _last_door_closed:
 					_console_writer.error("You can close only one door at a time. Please open door '%s'." % _last_door_closed.id)
 					return	
+				if not door.can_close:
+					_console_writer.error("A virus is locking the door.")
+					return
 				door.close()
 				_last_door_closed = door
 				_console_writer.success("Door '%s' closed." % id)
@@ -99,4 +117,5 @@ func _close_door(id: String) -> void:
 
 func _on_Core_on_destroyed() -> void:
 	_is_game_over= true
-	_console_writer.error("You loose!")
+	_console_writer.error("System out of control : Reload the system.")
+

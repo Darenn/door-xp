@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Door/Door.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/door_closed.tres" type="Texture" id=2]
 [ext_resource path="res://Tiles/floortileset.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 224.124, 31.4032, 32.773, 30.8822 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16.1502, 15.6197 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15.7827, 15.0062 )
 
 [node name="Door" type="KinematicBody2D"]
 collision_layer = 8
@@ -21,7 +24,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="SpriteDoorOpen" type="Sprite" parent="."]
-texture = SubResource( 1 )
+texture = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -39,3 +42,12 @@ clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource( 4 )
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_DetectionArea_area_exited"]

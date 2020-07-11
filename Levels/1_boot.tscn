@@ -7,21 +7,26 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 
 [node name="main" instance=ExtResource( 2 )]
+position = Vector2( -143, -28 )
+next_level = "2_floating_point"
+hint = "Use the close command to close the door d1."
+welcome_message = "System loaded, ready to start."
 
-[node name="FloorTileMap" parent="." index="1"]
-tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 327704, 1, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393240, 1, 0, 458761, 0, 0, 458774, 0, 0, 458776, 1, 0, 524297, 0, 0, 524310, 0, 0, 524312, 1, 0, 589833, 0, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 655384, 1, 0, 720920, 1, 0, 786456, 1, 0, 851992, 1, 0 )
+[node name="FloorTileMap" parent="." index="3"]
+tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 327704, 2, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393240, 2, 0, 458761, 0, 0, 458774, 0, 0, 458776, 2, 0, 524297, 0, 0, 524310, 0, 0, 524312, 2, 0, 589833, 0, 0, 589844, 3, 0, 589845, 3, 0, 589846, 3, 0, 589847, 3, 0, 589848, 2, 0, 655384, 2, 0, 720920, 2, 0, 786456, 2, 0, 851992, 2, 0 )
 
-[node name="CollisionTileMap" parent="." index="2"]
+[node name="CollisionTileMap" parent="." index="4"]
+visible = false
 tile_data = PoolIntArray( 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 327703, 0, 0, 327705, 0, 0, 393239, 0, 0, 393241, 0, 0, 458775, 0, 0, 458777, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524313, 0, 0, 589843, 0, 0, 589849, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655385, 0, 0, 720919, 0, 0, 720921, 0, 0, 786455, 0, 0, 786457, 0, 0, 851991, 0, 0, 851993, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0 )
+
+[node name="Core" parent="." index="5" instance=ExtResource( 1 )]
+position = Vector2( 783.168, 430.355 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 783.971, 336.63 )
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 5 )]
 position = Vector2( 781.974, 178.345 )
-
-[node name="Core" parent="." index="5" instance=ExtResource( 1 )]
-position = Vector2( 783.168, 430.355 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
 position = Vector2( 656.001, 303 )
