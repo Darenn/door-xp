@@ -3,6 +3,9 @@
 [ext_resource path="res://Viruses/Enemy2.1.png" type="Texture" id=1]
 [ext_resource path="res://Viruses/NME.gd" type="Script" id=2]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.66953, 2.17215 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
@@ -11,17 +14,55 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-
-[node name="Virus" type="KinematicBody2D"]
-collision_layer = 2
+[node name="Virus" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="AreaRight" type="Area2D" parent="."]
+scale = Vector2( 0.03, 0.03 )
+collision_layer = 2
+
+[node name="CollisionRight" type="CollisionShape2D" parent="AreaRight"]
+position = Vector2( 426.709, -68.371 )
+scale = Vector2( 33.3333, 33.3333 )
+shape = SubResource( 2 )
+
+[node name="AreaLeft" type="Area2D" parent="."]
+scale = Vector2( 0.03, 0.03 )
+collision_layer = 2
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="AreaLeft"]
+position = Vector2( -313.023, -68.371 )
+scale = Vector2( 33.3333, 33.3333 )
+shape = SubResource( 2 )
+
+[node name="AreaUp" type="Area2D" parent="."]
+scale = Vector2( 0.03, 0.03 )
+collision_layer = 2
+
+[node name="CollisionUp" type="CollisionShape2D" parent="AreaUp"]
+position = Vector2( 39.8272, -371.07 )
+rotation = 1.5708
+scale = Vector2( 33.3333, 33.3333 )
+shape = SubResource( 2 )
+
+[node name="AreaDown" type="Area2D" parent="."]
+scale = Vector2( 0.03, 0.03 )
+collision_layer = 2
+
+[node name="CollisionDown" type="CollisionShape2D" parent="AreaDown"]
+position = Vector2( 47.1369, 218.585 )
+rotation = 1.5708
+scale = Vector2( 33.3333, 33.3333 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.03, 0.03 )
 frames = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.89335, -2.05113 )
-rotation = 0.780162
-shape = SubResource( 2 )
+[connection signal="body_entered" from="AreaRight" to="." method="_on_AreaRight_body_entered"]
+[connection signal="body_exited" from="AreaRight" to="." method="_on_AreaRight_body_exited"]
+[connection signal="body_entered" from="AreaLeft" to="." method="_on_AreaLeft_body_entered"]
+[connection signal="body_exited" from="AreaLeft" to="." method="_on_AreaLeft_body_exited"]
+[connection signal="body_entered" from="AreaUp" to="." method="_on_AreaUp_body_entered"]
+[connection signal="body_exited" from="AreaUp" to="." method="_on_AreaUp_body_exited"]
+[connection signal="body_entered" from="AreaDown" to="." method="_on_AreaDown_body_entered"]
+[connection signal="body_exited" from="AreaDown" to="." method="_on_AreaDown_body_exited"]
