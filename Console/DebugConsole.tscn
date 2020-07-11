@@ -6,33 +6,27 @@
 [node name="DebugConsole" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="Consoles" type="GridContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/vseparation = 0
-custom_constants/hseparation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Console" parent="Consoles" instance=ExtResource( 2 )]
+[node name="Console" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 512.0
-margin_bottom = 600.0
+margin_right = 362.0
+margin_bottom = 275.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 userName = "TestName"
 userRight = 1
-design = 7
-dockingStation = 3
+consoleUserNameColor = 7
+design = 2
+dockingStation = 0
 textColor = 11
 channelNames = [ "Debug" ]
 hideScrollBar = true
-roundedTitleBarEdges = false
-titleBarBackgroundColor = Color( 1, 1, 1, 1 )
-backgroundColor = Color( 0, 0, 0, 1 )
-lineBackgroundColor = Color( 0.11, 0.11, 0.11, 0.82 )
-sendButtonColor = Color( 0.22, 0.22, 0.22, 0.34 )
-showTimeStamp = true
+showTitleBar = false
+showChannelButton = false
+titleBarBackgroundColor = Color( 0, 0, 0, 0.95 )
+backgroundColor = Color( 0.06, 0.06, 0.08, 0.88 )
+lineBackgroundColor = Color( 0.21, 0.21, 0.21, 0.82 )
+sendButtonColor = Color( 0.14, 0.14, 0.18, 0.34 )
+allowWindowDrag = false
+userMsgSign = ""
+commandSign = ""

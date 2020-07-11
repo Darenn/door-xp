@@ -159,6 +159,8 @@ func _ready():
 		update_log_time_interval(logInterval)
 		create_log_file()
 		logTimer.start()
+		
+	consoleLine.grab_focus()
 
 
 func add_channel(channelName : String) -> ConsoleChannel:
@@ -907,6 +909,8 @@ func get_time_stamp(includeDate : bool = true, \
 func _on_Line_text_entered(text):
 	if !text.empty() and not (text.length() == 1 and text[0] == commandSign):
 		send_line_input()
+		execute_command(text)
+		write("\n")
 
 
 func _on_Console_resized():

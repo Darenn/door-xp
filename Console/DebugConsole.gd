@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var console = $Consoles/Console
+onready var console = $Console
 
 
 func _ready():

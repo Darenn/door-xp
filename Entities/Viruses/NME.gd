@@ -1,7 +1,7 @@
 extends Node2D
 
 var _direction = Vector2.DOWN
-var speed = 50
+export(int) var speed = 50
 
 var _available_directions = [Vector2.DOWN, Vector2.UP, Vector2.RIGHT, Vector2.LEFT]
 

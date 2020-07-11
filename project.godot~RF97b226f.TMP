@@ -88,7 +88,6 @@ InputSystem="*res://Scripts/Globals/InputSystem.gd"
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="NMEs"
 2d_physics/layer_3="Core"
-2d_physics/layer_4="Doors"
 
 [rendering]
 
