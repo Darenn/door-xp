@@ -75,7 +75,18 @@ _global_script_class_icons={
 [application]
 
 config/name="gmtk_jam_2020"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameData="*res://Scripts/Globals/GameData.gd"
+InputSystem="*res://Scripts/Globals/InputSystem.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="NMEs"
 
 [rendering]
 
