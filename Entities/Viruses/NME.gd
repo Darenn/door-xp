@@ -1,7 +1,11 @@
 extends Node2D
 
-var _direction = Vector2.DOWN
+export(Vector2) var starting_direction = Vector2.DOWN
 export(int) var speed = 50
+
+var is_active = false
+
+onready var _direction = starting_direction
 
 var _available_directions = [Vector2.DOWN, Vector2.UP, Vector2.RIGHT, Vector2.LEFT]
 
@@ -9,6 +13,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
+	if not is_active:
+		return
 	# If we detect a wall in our current direction, change direction
 	if not _available_directions.has(_direction):
 		var favorite_directions = _available_directions.duplicate()
@@ -19,6 +25,9 @@ func _process(delta: float) -> void:
 		_direction = favorite_directions[randi() % favorite_directions.size()]
 	position += _direction * speed * delta
 
+func set_active(value: bool) -> void:
+	is_active = value
+	
 
 func _on_AreaRight_body_entered(body: Node) -> void:
 	_available_directions.erase(Vector2.RIGHT)
