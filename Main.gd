@@ -1,82 +1,104 @@
 extends Node2D
 
 export(String) var next_level
-export(String) var hint
-export(String) var welcome_message
+export(String, MULTILINE) var hint
+export(String, MULTILINE) var welcome_message
 
 onready var _console = $GUI/DebugConsole/Console
 onready var _console_writer = $GUI/DebugConsole
 onready var _doors = $Doors
 onready var _viruses = $Viruses
+onready var _animation_player = $AnimationPlayer
+onready var _lost_music_player = $LostSound
+onready var _voice_player = $VoicePlayer
+onready var _traps = $Traps
+
 
 var _is_started = false
 var _is_game_over = false
 var _last_door_closed = null
+var _is_lost = false
 
 func _ready() -> void:
 	_console_writer.write_line(welcome_message)
-	print(OS.get_user_data_dir())
-	
-	# start
-	var startRef = CommandRef.new(self, "_start", 0)
-	var startCommand = ConsoleCommand.new("start", startRef, "Start the loaded level. -> start")
-	_console.add_command(startCommand)
 	
 	# load [level1]
 	var loadRef = CommandRef.new(self, "_load", 1)
-	var loadCommand = ConsoleCommand.new("load", loadRef, "Load the given level. -> load 1_boot")
+	var loadCommand = ConsoleCommand.new("connect", loadRef, "Connect to the given computer (connect 1_boot)")
 	_console.add_command(loadCommand)
+	
+	# start
+	var startRef = CommandRef.new(self, "_start", 0)
+	var startCommand = ConsoleCommand.new("boot", startRef, "Boot the computer (boot)")
+	_console.add_command(startCommand)
 	
 	# reload
 	var reloadRef = CommandRef.new(self, "_reload", 0)
-	var reloadCommand = ConsoleCommand.new("reload", reloadRef, "Reload the current level. -> reload")
+	var reloadCommand = ConsoleCommand.new("restore", reloadRef, "Restore the computer (restore)")
 	_console.add_command(reloadCommand)
 	
 	# hint
 	var hintRef = CommandRef.new(self, "_hint", 0)
-	var hintCommand = ConsoleCommand.new("hint", hintRef, "Give you hints about the current level. -> hint")
+	var hintCommand = ConsoleCommand.new("hint", hintRef, "Give you hints about the current computer (hint)")
 	_console.add_command(hintCommand)
 	
 	# open_door [d1]
 	var openDoorRef = CommandRef.new(self, "_open_door", 1)
-	var openDoorCommand = ConsoleCommand.new("open", openDoorRef, "Open the given door. -> open d1")
+	var openDoorCommand = ConsoleCommand.new("open", openDoorRef, "Open the given door (open d1)")
 	_console.add_command(openDoorCommand)
 	
 	# close_door [d1]
 	var closeDoorRef = CommandRef.new(self, "_close_door", 1)
-	var closeDoorCommand = ConsoleCommand.new("close", closeDoorRef, "Close the given door. -> close d1")
+	var closeDoorCommand = ConsoleCommand.new("close", closeDoorRef, "Close the given door (close d1)")
 	_console.add_command(closeDoorCommand)
+	
+	_animation_player.play("connect")
+	_voice_player.play_connected()
+	
+	for antivirus in _traps.get_children():
+		antivirus.connect("virus_killed", self, "_on_Virus_killed")
+		
+func _on_Virus_killed():
+	_voice_player.play_kill()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# If no more viruses, win give the next level name
 	if _is_started and _viruses.get_child_count() == 0 and not _is_game_over:
 		_win()
-	
+		
 func _win() -> void:
 	_is_game_over = true
-	_console_writer.success("You secured this system! Next level is : '%s'." % next_level)
+	_console_writer.success("Virus infiltration neutralized.\n")
+	_console_writer.error("New computer found : '%s'. Please connect." % next_level)
+	_animation_player.play("win")
+	_voice_player.play_win()
 
 func _start() -> void:
 	if _is_started:
-		_console_writer.error("Level has already started.")
+		_console_writer.error("Computer already boot.")
 	elif _viruses.get_child_count() == 0:
-		_console_writer.error("You must load a level before starting it.")
+		_console_writer.error("You must connect to a computer to boot.")
 	else:
 		for virus in _viruses.get_children():
 			virus.set_active(true)
 			_is_started = true
-		_console_writer.success("Level started.")
+		_console_writer.success("Booting... boot completed.")
 		
 func _load(level: String) -> void:
 	var path = "res://Levels/%s.tscn" % level.to_lower()
 	if File.new().file_exists(path):
 		get_tree().change_scene(path)
-		_console_writer.success("Level '%s' was loaded." % level)
+		_animation_player.play("connect")
+		_lost_music_player.stop()
+		_console_writer.success("Connected to computer '%s'." % level)
+		
 	else:
-		_console_writer.error("Level '%s' was not found." % level)
+		_console_writer.error("Computer '%s' was not found." % level)
 		
 func _reload() -> void:
 	get_tree().reload_current_scene()
+	_animation_player.play("connect")
+	_lost_music_player.stop()
 	
 func _hint() -> void:
 	_console_writer.success(hint)	
@@ -117,5 +139,11 @@ func _close_door(id: String) -> void:
 
 func _on_Core_on_destroyed() -> void:
 	_is_game_over= true
-	_console_writer.error("System out of control : Reload the system.")
+	_is_lost = true
+	_animation_player.play("lost")
+	_lost_music_player.play()
+	_console_writer.error("System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system")
+	_voice_player.play_lost()
 
+func _on_Console_error() -> void:
+	_voice_player.play_errors()

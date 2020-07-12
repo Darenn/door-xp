@@ -1,21 +1,90 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Tiles/floortileset.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/gmtk_floor.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Remover/remover_pl.png" type="Texture" id=3]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/CRT_Shader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
+[ext_resource path="res://Shaders/shader_crt_1.tres" type="Material" id=7]
+[ext_resource path="res://Musics/voices/lost.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Musics/lost.wav" type="AudioStream" id=9]
+[ext_resource path="res://Entities/VoicePlayer/VoicePlayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Musics/voices/restore.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Musics/voices/lost_02.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Musics/voices/lost_03.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Musics/voices/error_02.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Musics/voices/error.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Musics/voices/error_03.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Fonts/windows_command_prompt.ttf" type="DynamicFontData" id=17]
 
-[sub_resource type="Environment" id=5]
+[sub_resource type="Environment" id=1]
 background_mode = 4
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.9
+dof_blur_far_transition = 0.32
+dof_blur_far_amount = 0.23
+dof_blur_far_quality = 2
 dof_blur_near_transition = 2.01
 dof_blur_near_amount = 0.0
 dof_blur_near_quality = 2
 glow_enabled = true
+glow_intensity = 1.0
 glow_bloom = 0.3
 glow_blend_mode = 0
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=2]
+0/name = "gmtk_floor.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 240, 240 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 80, 80 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "gmtk_floor.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 240, 80, 80 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "gmtk_floor.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 400, 80, 80 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="TileSet" id=3]
 1/name = "floortileset.png 1"
 1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
@@ -213,10 +282,16 @@ glow_blend_mode = 0
 14/shapes = [  ]
 14/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
+
+[sub_resource type="TileSet" id=8]
 0/name = "floortileset.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -227,14 +302,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 3 )
+0/shape = SubResource( 4 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -262,46 +337,453 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 6 )
 2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 2/z_index = 0
+3/name = "floortileset.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 80, 80, 80, 80 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 7 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+
+[sub_resource type="Animation" id=11]
+resource_name = "connect"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1920.0, 1920.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1080.0, 1081.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/BarrelPower")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.2, 1.2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/color_bleeding")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 6.0, 6.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 1.5 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_distance")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 4.0, 4.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scan_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scanline_alpha")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.1, 1.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_velocity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "lost"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1920.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1080.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/BarrelPower")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.2, 2.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/color_bleeding")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 6.0, 40.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 10.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_distance")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scan_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 3.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scanline_alpha")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_velocity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, 20.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1920.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1080.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/BarrelPower")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.2, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/color_bleeding")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 6.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/bleeding_range_y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_distance")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scan_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/scanline_alpha")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/lines_velocity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+
+[sub_resource type="DynamicFont" id=12]
+size = 200
+font_data = ExtResource( 17 )
 
 [node name="main" type="Node2D"]
 script = ExtResource( 6 )
-hint = "Use the load command to load the first level '1_boot'."
-welcome_message = "Type help to get a list of all the commands."
+hint = "Use the 'connect' command to connect to the first computer '1_boot'."
+welcome_message = "Welcome.
+Several computers have been contaminated by virus. 
+Connect to them and neutralize the virus before the system runs out of control.
+The first computer is named '1_boot'.
+Type help to get a list of all the commands."
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 5 )
+environment = SubResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
-modulate = Color( 0.376471, 0.376471, 0.380392, 1 )
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 954.702, 504.78 )
 scale = Vector2( 64.1944, 12.6489 )
 texture = ExtResource( 3 )
 
 [node name="Background2" type="Sprite" parent="."]
-modulate = Color( 0.882353, 0.870588, 0.870588, 0.501961 )
+visible = false
+modulate = Color( 0.223529, 0.196078, 0.196078, 0.501961 )
 position = Vector2( 1395.56, 534.246 )
 scale = Vector2( 30.9472, 10.6794 )
 texture = ExtResource( 3 )
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
-margin_left = -30.642
-margin_top = -38.1332
-margin_right = 1773.36
-margin_bottom = 899.867
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 28, 2, 0, 29, 0, 2, 65536, 1, 0, 65565, 1, 0, 131072, 1, 0, 131101, 1, 0, 196608, 1, 0, 196637, 1, 0, 262144, 1, 0, 262173, 1, 0, 327680, 1, 0, 327709, 1, 0, 393216, 1, 0, 393245, 1, 0, 458752, 1, 0, 458781, 1, 0, 524288, 1, 0, 524317, 1, 0, 589824, 1, 0, 589853, 1, 0, 655360, 1, 0, 655389, 1, 0, 720896, 1, 0, 720925, 1, 0, 786432, 1, 0, 786461, 1, 0, 851968, 1, 0, 851997, 1, 0, 917504, 1, 0, 917533, 1, 0, 983040, 1, 0, 983069, 1, 0, 1048576, 0, 131072, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 0, 131074 )
 
 [node name="FloorTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 79, 79 )
 format = 1
-tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 458761, 0, 0, 458774, 0, 0, 524297, 0, 0, 524310, 0, 0, 589833, 0, 0, 589846, 0, 0 )
+tile_data = PoolIntArray( 131087, 0, 0, 327695, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393237, 0, 0, 393238, 0, 0, 458761, 0, 0, 458774, 0, 0, 524297, 0, 0, 524310, 0, 0, 589833, 0, 0, 589846, 0, 0 )
 
 [node name="CollisionTileMap" type="TileMap" parent="."]
 visible = false
-tile_set = SubResource( 4 )
+tile_set = SubResource( 8 )
 cell_size = Vector2( 79, 79 )
 collision_mask = 2
 format = 1
@@ -311,3 +793,48 @@ format = 1
 [node name="Viruses" type="Node2D" parent="."]
 
 [node name="Traps" type="Node2D" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="Console" parent="GUI/DebugConsole" index="0"]
+margin_right = 924.0
+margin_bottom = 860.0
+
+[node name="CRT_Shader" parent="GUI/DebugConsole" index="1" instance=ExtResource( 5 )]
+material = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/connect = SubResource( 11 )
+anims/lost = SubResource( 10 )
+anims/win = SubResource( 9 )
+
+[node name="LostSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1000, 600 )
+stream = ExtResource( 9 )
+pitch_scale = 0.92
+
+[node name="VoicePlayer" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1000, 600 )
+stream = ExtResource( 11 )
+pitch_scale = 0.95
+autoplay = true
+errors = [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ) ]
+lost = [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ) ]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 743.0
+margin_top = 155.0
+margin_right = 1851.0
+margin_bottom = 839.0
+custom_fonts/font = SubResource( 12 )
+text = "Door XP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="error" from="GUI/DebugConsole/Console" to="." method="_on_Console_error"]
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]

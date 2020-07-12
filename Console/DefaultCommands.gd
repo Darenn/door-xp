@@ -427,7 +427,7 @@ func help():
 	consoleRef.write_line("")
 	if _firstHelp:
 		_firstHelp = false
-		consoleRef.write("'help' shows user added commands. Use 'helpAll' to show all commands")
+		consoleRef.write("'help' shows user added commands.")
 	
 	for ti in range(consoleRef.commands.size() - consoleRef.basicCommandsAmount):
 		var i = ti + consoleRef.basicCommandsAmount

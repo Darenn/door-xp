@@ -24,9 +24,9 @@ func open() -> void:
 	is_open = true
 
 
-func _on_DetectionArea_area_entered(area: Area2D) -> void:
+func _on_DetectionArea_area_entered(_area: Area2D) -> void:
 	can_close = false
 
 
-func _on_DetectionArea_area_exited(area: Area2D) -> void:
+func _on_DetectionArea_area_exited(_area: Area2D) -> void:
 	can_close = true

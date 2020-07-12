@@ -15,9 +15,9 @@ const previewLineMessage := "%senter text here..."
 const previewConsoleText := "%s%sman help"
 
 # Keys
-const nextMessageKey := "ui_down"
-const previousMessageKey := "ui_up"
-const autoCompleteKey := "ui_focus_next"
+const nextMessageKey := "none"
+const previousMessageKey := "none"
+const autoCompleteKey := "none"
 const toggleConsoleKey := KEY_QUOTELEFT
 
 # makrso for predefined messages
@@ -246,10 +246,14 @@ func success(msg, flags = 0, channel = selectedChannel):
 func warn(msg, flags = 0, channel = selectedChannel):
 	write_line(WARN_MSG % msg, flags, channel)
 
+onready var error_player = $ErrorPlayer
+
+signal error
 
 func error(msg, flags = 0, channel = selectedChannel):
 	write_line(ERROR_MSG % msg, flags, channel)
-
+	error_player.play()
+	emit_signal("error")
 
 func write_line(msg, flags = 0, channel = selectedChannel):
 	if !msg.empty():
@@ -424,6 +428,7 @@ func execute_command(message : String):
 	if cmd == null:
 		write_line("")
 		write(COMMAND_NOT_FOUND_MSG)
+		emit_signal("error")
 		return
 		
 	var found = false
@@ -479,7 +484,7 @@ func _input(event):
 			elif event.scancode == KEY_LEFT and Input.is_key_pressed(KEY_CONTROL) and \
 					consoleLine.get_cursor_position() == 0:
 				consoleLine.set_cursor_position(consoleLine.text.length())
-		if event.is_action_pressed(previousMessageKey):
+		if false and event.is_action_pressed(previousMessageKey):
 			if enteredMessages.empty():
 				return
 			messageIndex -= 1
@@ -491,7 +496,7 @@ func _input(event):
 			consoleLine.grab_focus()
 			consoleLine.set_cursor_position(consoleLine.text.length())
 		
-		elif event.is_action_pressed(nextMessageKey):
+		elif false and event.is_action_pressed(nextMessageKey):
 			if enteredMessages.empty():
 				return
 			messageIndex += 1
@@ -501,7 +506,7 @@ func _input(event):
 				messageIndex = 0
 			consoleLine.text = enteredMessages[messageIndex]
 	
-		if event.is_action_pressed(autoCompleteKey):
+		if false and event.is_action_pressed(autoCompleteKey):
 			if consoleLine.text.length() > 1:
 				var closests = get_closest_commands(consoleLine.text)
 				if  closests != null:
@@ -905,12 +910,16 @@ func get_time_stamp(includeDate : bool = true, \
 
 ### Signals
 
+onready var _keyboard_sound_player = $KeyboardSounds
+onready var _keyboard_enter_player = $EnterSound
+
 
 func _on_Line_text_entered(text):
 	if !text.empty() and not (text.length() == 1 and text[0] == commandSign):
 		send_line_input()
 		execute_command(text)
 		write("\n")
+		_keyboard_enter_player.play()
 
 
 func _on_Console_resized():
@@ -947,7 +956,17 @@ func _on_Line_text_changed(new_text : String):
 	var caretPos = consoleLine.caret_position
 	consoleLine.set_text(new_text)
 	consoleLine.caret_position = caretPos
+	if not _keyboard_sound_player.playing:
+		_keyboard_sound_player.play(sound_pos)
+		yield(get_tree().create_timer(0.5), "timeout")
+		_stop_keyboard()
+		
+var sound_pos = 0
 
+func _stop_keyboard():
+	if _keyboard_sound_player.playing:
+		sound_pos = _keyboard_sound_player.get_playback_position()
+		_keyboard_sound_player.stop()
 
 func _on_RichTextLabel_meta_clicked(meta):
 	consoleLine.text = meta.substr(0, meta.length())

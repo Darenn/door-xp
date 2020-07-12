@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kill_virus_01.ogg-465023ee0dc077df61a9bd5e0b722d73.oggstr"
+
+[deps]
+
+source_file="res://Musics/voices/kill_virus_01.ogg"
+dest_files=[ "res://.import/kill_virus_01.ogg-465023ee0dc077df61a9bd5e0b722d73.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

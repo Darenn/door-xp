@@ -62,8 +62,3 @@ func add_channel(channelName : String):
 
 func remove_channel(channelName : String):
 	console.remove_channel(channelName)
-
-
-
-
-

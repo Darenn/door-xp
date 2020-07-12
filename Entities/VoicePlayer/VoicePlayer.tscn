@@ -1,0 +1,27 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Entities/VoicePlayer/VoicePlayer.gd" type="Script" id=1]
+[ext_resource path="res://Musics/voices/kill_virus_02.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Musics/voices/kill_virus_01.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Musics/voices/kill_virus_03.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Musics/voices/kill_virus_04.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Musics/voices/connected.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Musics/voices/error_02.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Musics/voices/lost.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Musics/voices/error_03.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Musics/voices/lost_02.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Musics/voices/connected_02.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Musics/voices/win.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Musics/voices/lost_03.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Musics/voices/win_02.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Musics/voices/restore.ogg" type="AudioStream" id=16]
+
+[node name="VoicePlayer" type="AudioStreamPlayer2D"]
+pitch_scale = 0.5
+script = ExtResource( 1 )
+kill_virus_sounds = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+connected_sounds = [ ExtResource( 6 ), ExtResource( 12 ) ]
+errors = [ ExtResource( 7 ), ExtResource( 10 ) ]
+lost = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 14 ) ]
+win = [ ExtResource( 13 ), ExtResource( 15 ) ]
+restore = [ ExtResource( 16 ) ]

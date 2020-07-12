@@ -1,7 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Console/Console.gd" type="Script" id=1]
 [ext_resource path="res://Console/noto_sans_ui/NotoSansUI-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Musics/error.wav" type="AudioStream" id=3]
+[ext_resource path="res://Musics/keyboard.wav" type="AudioStream" id=4]
+[ext_resource path="res://Musics/enter.wav" type="AudioStream" id=5]
+[ext_resource path="res://Fonts/windows_command_prompt.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.95 )
@@ -15,33 +19,40 @@ border_color = Color( 1, 1, 1, 0.145098 )
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.843137, 0.843137, 0.843137, 0.109804 )
+[sub_resource type="DynamicFont" id=4]
+size = 38
+font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 0 )
+bg_color = Color( 0.843137, 0.843137, 0.843137, 0.109804 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.588235, 0.588235, 0.588235, 0.121569 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 0.243137 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.14, 0.14, 0.18, 0.34 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 10
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=15]
 length = 0.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Control:rect_position:x")
@@ -78,7 +89,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Control:rect_position:x")
@@ -118,7 +129,7 @@ tracks/2/keys = {
 [node name="Console" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -325.0
+margin_bottom = -805.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -157,7 +168,7 @@ __meta__ = {
 
 [node name="TitleBar" type="Control" parent="Control/VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 42.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
@@ -210,9 +221,9 @@ __meta__ = {
 }
 
 [node name="ConsoleContainer" type="Control" parent="Control/VBoxContainer"]
-margin_top = 42.0
+margin_top = 15.0
 margin_right = 1920.0
-margin_bottom = 755.0
+margin_bottom = 275.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 25.0
@@ -228,7 +239,7 @@ __meta__ = {
 [node name="ConsoleText" type="Control" parent="Control/VBoxContainer/ConsoleContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -20.0
+margin_bottom = -59.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
@@ -252,7 +263,10 @@ margin_left = 4.0
 margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
+bbcode_text = "[color=#ff00ff00]> [color=#ffb03061][/color]: /man help[/color]"
+text = "> : /man help"
 scroll_following = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -262,7 +276,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -20.0
+margin_top = -59.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -291,7 +305,7 @@ __meta__ = {
 
 [node name="ChannelSelector" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
 margin_right = 147.0
-margin_bottom = 20.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -306,10 +320,10 @@ __meta__ = {
 [node name="Channels" type="OptionButton" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer/ChannelSelector"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
 text = "All"
 items = [ "All", null, false, 0, null ]
 selected = 0
@@ -320,7 +334,7 @@ __meta__ = {
 [node name="Input" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
 margin_left = 149.0
 margin_right = 1920.0
-margin_bottom = 20.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 12.0
@@ -328,10 +342,15 @@ size_flags_stretch_ratio = 12.0
 [node name="Line" type="LineEdit" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer/Input"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_right = -3.0
-custom_styles/normal = SubResource( 6 )
-placeholder_text = ">"
+margin_left = 7.0
+margin_top = -10.0
+margin_right = -17.0
+margin_bottom = -8.0
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+text = "> enter text here..."
+max_length = 30
 caret_blink = true
 caret_blink_speed = 0.5
 __meta__ = {
@@ -360,12 +379,12 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "send"
 __meta__ = {
@@ -373,8 +392,20 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/slide_in = SubResource( 11 )
-anims/slide_out = SubResource( 12 )
+anims/slide_in = SubResource( 15 )
+anims/slide_out = SubResource( 14 )
+
+[node name="ErrorPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 3.975
+
+[node name="KeyboardSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="EnterSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 1.987
+pitch_scale = 1.2
 [connection signal="resized" from="." to="." method="_on_Console_resized"]
 [connection signal="timeout" from="LogTimer" to="." method="_on_LogTimer_timeout"]
 [connection signal="gui_input" from="Control/VBoxContainer/TitleBar" to="." method="_on_TitleBar_gui_input"]

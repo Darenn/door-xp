@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main.tscn" type="PackedScene" id=1]
+
+[node name="main" instance=ExtResource( 1 )]
+next_level = "How did you trigger that?"
+hint = "I hope you did not use too much hints?
+Here's a gift for you, did you try the 'out_of_control' command?"
+welcome_message = "You have secured all the computers.
+Good job. Well done.
+Very well. Thank you.
+Congratulations.
+[color=red]But stay prepare, we never know when new computers will be infected.[/color]
+You can close the application now.
+Do not forget to leave a comment."
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]

@@ -1,48 +1,72 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/BlackHole/BlackHole.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
 [node name="main" instance=ExtResource( 1 )]
 position = Vector2( -154, -87 )
 next_level = "6_shellcode"
-hint = "Your anti-virus agents die when killing a virus. Let the first virus pass, then close d2."
-welcome_message = "System loaded, ready to start."
+hint = "Anti-virus die when killing a virus. Let the first virus pass, then close d2."
+welcome_message = "Connected to '5_userspace'.
+Restoration point created.
+Ready to boot."
 
-[node name="FloorTileMap" parent="." index="1"]
-tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 262164, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 1, 0, 262170, 1, 0, 327695, 0, 0, 327700, 1, 0, 327703, 1, 0, 327706, 1, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 1, 0, 393236, 1, 0, 393237, 0, 0, 393238, 0, 0, 393239, 1, 0, 393240, 1, 0, 393241, 1, 0, 393242, 1, 0, 458761, 0, 0, 458772, 1, 0, 458774, 0, 0, 458775, 1, 0, 524297, 0, 0, 524308, 1, 0, 524310, 0, 0, 524311, 1, 0, 589833, 0, 0, 589844, 1, 0, 589846, 0, 0, 589847, 1, 0, 655380, 1, 0, 655383, 1, 0, 720916, 1, 0, 720919, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 851991, 1, 0, 917527, 1, 0, 983063, 1, 0, 1048599, 1, 0 )
+[node name="Background" parent="." index="1"]
+position = Vector2( 1127.4, 586.975 )
 
-[node name="CollisionTileMap" parent="." index="2"]
-tile_data = PoolIntArray( 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 0, 0, 196635, 0, 0, 262163, 0, 0, 262171, 0, 0, 327698, 0, 0, 327699, 0, 0, 327701, 0, 0, 327702, 0, 0, 327704, 0, 0, 327705, 0, 0, 327707, 0, 0, 393234, 0, 0, 393237, 0, 0, 393238, 0, 0, 393243, 0, 0, 458770, 0, 0, 458771, 0, 0, 458773, 0, 0, 458774, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 524307, 0, 0, 524309, 0, 0, 524310, 0, 0, 524312, 0, 0, 589843, 0, 0, 589845, 0, 0, 589846, 0, 0, 589848, 0, 0, 655379, 0, 0, 655381, 0, 0, 655382, 0, 0, 655384, 0, 0, 720915, 0, 0, 720917, 0, 0, 720918, 0, 0, 720920, 0, 0, 786451, 0, 0, 786456, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851992, 0, 0, 917526, 0, 0, 917528, 0, 0, 983062, 0, 0, 983064, 0, 0, 1048598, 0, 0, 1048600, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0 )
+[node name="TileMap" parent="." index="3"]
+position = Vector2( 116, 70 )
+
+[node name="FloorTileMap" parent="." index="4"]
+position = Vector2( -235.467, -195.213 )
+tile_data = PoolIntArray( 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 262164, 2, 0, 262165, 14, 0, 262166, 14, 0, 262167, 3, 0, 262168, 14, 0, 262169, 14, 0, 262170, 4, 0, 327695, 0, 0, 327700, 11, 0, 327703, 11, 0, 327706, 11, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 14, 0, 393236, 7, 0, 393237, 0, 0, 393238, 0, 0, 393239, 5, 0, 393240, 14, 0, 393241, 14, 0, 393242, 10, 0, 458761, 0, 0, 458772, 11, 0, 458774, 0, 0, 458775, 11, 0, 524297, 0, 0, 524308, 11, 0, 524310, 0, 0, 524311, 11, 0, 589833, 0, 0, 589844, 11, 0, 589846, 0, 0, 589847, 11, 0, 655380, 11, 0, 655383, 11, 0, 720916, 11, 0, 720919, 11, 0, 786452, 8, 0, 786453, 14, 0, 786454, 14, 0, 786455, 7, 0, 786464, 1, 0, 851991, 11, 0, 917527, 11, 0, 983063, 11, 0, 1048599, 11, 0 )
+
+[node name="ending" parent="." index="5" instance=ExtResource( 6 )]
+position = Vector2( 1250.73, 317.464 )
+
+[node name="ending2" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 1622.79, 1137.53 )
+
+[node name="CollisionTileMap" parent="." index="7"]
+position = Vector2( -235.467, -195.213 )
+tile_data = PoolIntArray( 196627, 2, 0, 196628, 2, 0, 196629, 2, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 262163, 2, 0, 262171, 2, 0, 327698, 2, 0, 327699, 2, 0, 327701, 2, 0, 327702, 2, 0, 327704, 2, 0, 327705, 2, 0, 327707, 2, 0, 393234, 2, 0, 393237, 2, 0, 393238, 2, 0, 393243, 2, 0, 458770, 2, 0, 458771, 2, 0, 458773, 2, 0, 458774, 2, 0, 458776, 2, 0, 458777, 2, 0, 458778, 2, 0, 458779, 2, 0, 524307, 2, 0, 524309, 2, 0, 524310, 2, 0, 524312, 2, 0, 589843, 2, 0, 589845, 2, 0, 589846, 2, 0, 589848, 2, 0, 655379, 2, 0, 655381, 2, 0, 655382, 2, 0, 655384, 2, 0, 720915, 2, 0, 720917, 2, 0, 720918, 2, 0, 720920, 2, 0, 786451, 2, 0, 786456, 2, 0, 851987, 2, 0, 851988, 2, 0, 851989, 2, 0, 851990, 2, 0, 851992, 2, 0, 917526, 2, 0, 917528, 2, 0, 983062, 2, 0, 983064, 2, 0, 1048598, 2, 0, 1048600, 2, 0, 1114134, 2, 0, 1114135, 2, 0, 1114136, 2, 0 )
+
+[node name="Core" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 1618.52, 142.936 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
-position = Vector2( 752.027, 175.624 )
+position = Vector2( 1621.94, 712.805 )
 
 [node name="Door2" parent="Doors" index="1" instance=ExtResource( 3 )]
-position = Vector2( 752.027, 366.013 )
+position = Vector2( 1384.39, 239.808 )
 id = "d2"
 
 [node name="Door3" parent="Doors" index="2" instance=ExtResource( 3 )]
-position = Vector2( 655.304, 176.436 )
+position = Vector2( 1621.03, 240.18 )
 id = "d3"
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 5 )]
-position = Vector2( 749.423, 499.427 )
+position = Vector2( 1620.73, 1027.23 )
 starting_direction = Vector2( 0, -1 )
 
 [node name="Virus2" parent="Viruses" index="1" instance=ExtResource( 5 )]
-position = Vector2( 749.361, 435.527 )
+position = Vector2( 1623.55, 857.733 )
 starting_direction = Vector2( 0, -1 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
-position = Vector2( 847.233, 206.392 )
+position = Vector2( 1303.82, 301.318 )
 
 [node name="BlackHole2" parent="Traps" index="1" instance=ExtResource( 4 )]
-position = Vector2( 622.511, 208.184 )
+position = Vector2( 1855.16, 295.558 )
 
-[node name="Core" parent="." index="6" instance=ExtResource( 2 )]
-position = Vector2( 751.915, 143.676 )
+[node name="Label" parent="." index="16"]
+visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]

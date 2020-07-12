@@ -12,7 +12,7 @@ onready var _direction = starting_direction
 var _available_directions = [Vector2.DOWN, Vector2.UP, Vector2.RIGHT, Vector2.LEFT]
 
 func _ready() -> void:
-	pass # Replace with function body.
+	_adjust_rotation() 
 	
 
 func _physics_process(delta: float) -> void:
@@ -46,6 +46,14 @@ func _process(delta: float) -> void:
 		else:
 			_direction = old_direction
 	position += _direction * speed * delta
+	_adjust_rotation() 
+	
+
+func set_active(value: bool) -> void:
+	is_active = value
+	
+	
+func _adjust_rotation() -> void:
 	match _direction:
 		Vector2.UP:
 			$virus.rotation_degrees = 0
@@ -55,9 +63,6 @@ func _process(delta: float) -> void:
 			$virus.rotation_degrees = 270
 		Vector2.RIGHT:
 			$virus.rotation_degrees = 90
-
-func set_active(value: bool) -> void:
-	is_active = value
 	
 
 #func _on_AreaRight_body_entered(body: Node) -> void:

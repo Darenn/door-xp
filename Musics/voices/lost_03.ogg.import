@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lost_03.ogg-2891aaf7306c93af440e1b2297ee001f.oggstr"
+
+[deps]
+
+source_file="res://Musics/voices/lost_03.ogg"
+dest_files=[ "res://.import/lost_03.ogg-2891aaf7306c93af440e1b2297ee001f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

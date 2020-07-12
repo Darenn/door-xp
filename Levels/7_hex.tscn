@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/BlackHole/BlackHole.tscn" type="PackedScene" id=5]
+
+[node name="main" instance=ExtResource( 1 )]
+hint = "Take your time, restore several times and take note of the commands to execute if needed.
+"
+welcome_message = "Connected to '7_hex'.
+Restoration point created.
+Ready to boot."
+
+[node name="FloorTileMap" parent="." index="4"]
+tile_data = PoolIntArray( 131087, 0, 0, 196620, 2, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 14, 0, 196626, 14, 0, 196627, 14, 0, 196628, 14, 0, 196629, 14, 0, 196630, 14, 0, 262156, 5, 0, 262157, 6, 0, 262158, 6, 0, 262159, 9, 0, 262160, 7, 0, 327692, 8, 0, 327693, 9, 0, 327694, 7, 0, 327695, 0, 0, 327696, 11, 0, 327698, 2, 0, 327699, 14, 0, 327700, 3, 0, 327701, 3, 0, 327702, 4, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 11, 0, 393231, 0, 0, 393234, 11, 0, 393236, 5, 0, 393237, 6, 0, 393238, 7, 0, 458761, 0, 0, 458766, 11, 0, 458768, 14, 0, 458769, 14, 0, 458770, 9, 0, 458771, 14, 0, 458772, 9, 0, 458773, 9, 0, 458774, 10, 0, 524297, 0, 0, 524300, 2, 0, 524301, 14, 0, 524302, 7, 0, 524310, 0, 0, 589833, 0, 0, 589836, 11, 0, 589838, 8, 0, 589839, 3, 0, 589840, 14, 0, 589841, 14, 0, 589842, 14, 0, 589843, 14, 0, 589844, 14, 0, 589846, 0, 0, 655372, 11, 0, 655375, 11, 0, 720908, 8, 0, 720909, 14, 0, 720910, 14, 0, 720911, 10, 0 )
+
+[node name="CollisionTileMap" parent="." index="5"]
+tile_data = PoolIntArray( 131083, 2, 0, 131084, 2, 0, 131085, 2, 0, 131086, 2, 0, 131087, 2, 0, 131088, 2, 0, 131089, 2, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 131095, 2, 0, 196619, 2, 0, 196631, 2, 0, 262155, 2, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 2, 0, 262165, 2, 0, 262166, 2, 0, 262167, 2, 0, 327691, 2, 0, 327695, 2, 0, 327697, 2, 0, 327703, 2, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393231, 2, 0, 393232, 2, 0, 393233, 2, 0, 393235, 2, 0, 393239, 2, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458767, 2, 0, 458775, 2, 0, 524299, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 589835, 2, 0, 589837, 2, 0, 589845, 2, 0, 655371, 2, 0, 655373, 2, 0, 655374, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0, 655380, 2, 0, 655381, 2, 0, 720907, 2, 0, 720912, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 4 )]
+position = Vector2( 1147.47, 752.61 )
+
+[node name="Door2" parent="Doors" index="1" instance=ExtResource( 4 )]
+position = Vector2( 1067.96, 670.459 )
+id = "d2"
+
+[node name="Door3" parent="Doors" index="2" instance=ExtResource( 4 )]
+position = Vector2( 1539.67, 596.258 )
+id = "d3"
+
+[node name="Door6" parent="Doors" index="3" instance=ExtResource( 4 )]
+position = Vector2( 1777.17, 435.709 )
+id = "d6"
+
+[node name="Door5" parent="Doors" index="4" instance=ExtResource( 4 )]
+position = Vector2( 1144.81, 590.958 )
+id = "d5"
+
+[node name="Door4" parent="Doors" index="5" instance=ExtResource( 4 )]
+position = Vector2( 1150.11, 277.89 )
+id = "d4"
+
+[node name="Virus" parent="Viruses" index="0" instance=ExtResource( 2 )]
+position = Vector2( 1772.34, 274.411 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Virus2" parent="Viruses" index="1" instance=ExtResource( 2 )]
+position = Vector2( 1546.03, 752.742 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Virus3" parent="Viruses" index="2" instance=ExtResource( 2 )]
+position = Vector2( 1306.6, 591.62 )
+starting_direction = Vector2( 1, 0 )
+
+[node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 5 )]
+position = Vector2( 1690.69, 511.818 )
+
+[node name="BlackHole2" parent="Traps" index="1" instance=ExtResource( 5 )]
+position = Vector2( 1621.15, 749.869 )
+
+[node name="BlackHole3" parent="Traps" index="2" instance=ExtResource( 5 )]
+position = Vector2( 1223.53, 354.457 )
+
+[node name="Core" parent="." index="13" instance=ExtResource( 3 )]
+position = Vector2( 1613.08, 605.495 )
+
+[node name="Core2" parent="." index="14" instance=ExtResource( 3 )]
+position = Vector2( 1146.03, 680.483 )
+
+[node name="Label" parent="." index="15"]
+visible = false
+[connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]
