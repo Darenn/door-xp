@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/BlackHole/BlackHole.tscn" type="PackedScene" id=5]
 
 [node name="main" instance=ExtResource( 1 )]
+next_level = "8_out_of_control"
 hint = "Take your time, restore several times and take note of the commands to execute if needed.
 "
 welcome_message = "Connected to '7_hex'.
@@ -72,6 +73,7 @@ position = Vector2( 1146.03, 680.483 )
 [node name="Label" parent="." index="15"]
 visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+[connection signal="on_destroyed" from="Core2" to="." method="_on_Core2_on_destroyed"]
 
 [editable path="GUI"]
 

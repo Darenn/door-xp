@@ -147,3 +147,7 @@ func _on_Core_on_destroyed() -> void:
 
 func _on_Console_error() -> void:
 	_voice_player.play_errors()
+
+
+func _on_Core2_on_destroyed() -> void:
+	pass # Replace with function body.
