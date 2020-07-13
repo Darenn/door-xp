@@ -285,13 +285,13 @@ glow_blend_mode = 0
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
+
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
-
-[sub_resource type="TileSet" id=8]
+[sub_resource type="TileSet" id=7]
 0/name = "floortileset.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -337,14 +337,14 @@ points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 6 )
+2/shape = SubResource( 5 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -358,19 +358,19 @@ points = PoolVector2Array( 80, 80, 0, 80, 0, 0, 80, 0 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 7 )
+3/shape = SubResource( 6 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "connect"
 length = 0.1
 tracks/0/type = "value"
@@ -494,7 +494,7 @@ tracks/9/keys = {
 "values": [ 5.0, 5.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "lost"
 length = 0.3
 tracks/0/type = "value"
@@ -618,8 +618,7 @@ tracks/9/keys = {
 "values": [ 5.0, 20.0 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "win"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("GUI/DebugConsole/CRT_Shader:material:shader_param/screen_width")
 tracks/0/interp = 1
@@ -741,7 +740,7 @@ tracks/9/keys = {
 "values": [ 5.0 ]
 }
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 200
 font_data = ExtResource( 17 )
 
@@ -783,7 +782,7 @@ tile_data = PoolIntArray( 131087, 0, 0, 327695, 0, 0, 393225, 0, 0, 393226, 0, 0
 
 [node name="CollisionTileMap" type="TileMap" parent="."]
 visible = false
-tile_set = SubResource( 8 )
+tile_set = SubResource( 7 )
 cell_size = Vector2( 79, 79 )
 collision_mask = 2
 format = 1
@@ -793,6 +792,8 @@ format = 1
 [node name="Viruses" type="Node2D" parent="."]
 
 [node name="Traps" type="Node2D" parent="."]
+
+[node name="Removers" type="Node2D" parent="."]
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
@@ -804,9 +805,9 @@ margin_bottom = 860.0
 material = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/connect = SubResource( 11 )
-anims/lost = SubResource( 10 )
-anims/win = SubResource( 9 )
+anims/connect = SubResource( 8 )
+anims/lost = SubResource( 9 )
+anims/win = SubResource( 10 )
 
 [node name="LostSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 1000, 600 )
@@ -826,7 +827,7 @@ margin_left = 743.0
 margin_top = 155.0
 margin_right = 1851.0
 margin_bottom = 839.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Door XP"
 align = 1
 valign = 1

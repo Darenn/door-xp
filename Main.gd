@@ -12,6 +12,7 @@ onready var _animation_player = $AnimationPlayer
 onready var _lost_music_player = $LostSound
 onready var _voice_player = $VoicePlayer
 onready var _traps = $Traps
+onready var _removers = $Removers
 
 
 var _is_started = false
@@ -42,15 +43,20 @@ func _ready() -> void:
 	var hintCommand = ConsoleCommand.new("hint", hintRef, "Give you hints about the current computer (hint)")
 	_console.add_command(hintCommand)
 	
-	# open_door [d1]
+	# open [d1]
 	var openDoorRef = CommandRef.new(self, "_open_door", 1)
 	var openDoorCommand = ConsoleCommand.new("open", openDoorRef, "Open the given door (open d1)")
 	_console.add_command(openDoorCommand)
 	
-	# close_door [d1]
+	# close [d1]
 	var closeDoorRef = CommandRef.new(self, "_close_door", 1)
 	var closeDoorCommand = ConsoleCommand.new("close", closeDoorRef, "Close the given door (close d1)")
 	_console.add_command(closeDoorCommand)
+	
+	# rm [r1]
+	var rmRef = CommandRef.new(self, "_rm", 1)
+	var rmCommand = ConsoleCommand.new("rm", rmRef, "Removes all virus in the data storage (rm ds1)")
+	_console.add_command(rmCommand)
 	
 	_animation_player.play("connect")
 	_voice_player.play_connected()
@@ -58,6 +64,15 @@ func _ready() -> void:
 	for antivirus in _traps.get_children():
 		antivirus.connect("virus_killed", self, "_on_Virus_killed")
 		
+func _rm(id):
+	id = id.to_lower()
+	for ds in _removers.get_children():
+		if ds.id == id:
+			ds.remove()
+			_console_writer.success("Data Storage '%s' removed." % id)		
+			return
+	_console_writer.error("Data Storage '%s' not found." % id)
+
 func _on_Virus_killed():
 	_voice_player.play_kill()
 
