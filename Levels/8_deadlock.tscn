@@ -7,6 +7,11 @@
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=5]
 
 [node name="main" instance=ExtResource( 3 )]
+hint = "Use the 'rm' command to kill the virus while its in the data storage."
+welcome_message = "Connected to '8_deadlock'.
+Restoration point created.
+[color=#FFA500]Data Storage[/color] can be removed, deleting all data it contains.
+Ready to boot."
 
 [node name="FloorTileMap" parent="." index="4"]
 tile_data = PoolIntArray( 131087, 0, 0, 196625, 11, 0, 262161, 11, 0, 327695, 0, 0, 327697, 11, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393233, 11, 0, 393237, 0, 0, 393238, 0, 0, 458761, 0, 0, 458769, 11, 0, 458774, 0, 0, 524297, 0, 0, 524305, 11, 0, 524310, 0, 0, 589833, 0, 0, 589841, 11, 0, 589846, 0, 0 )
@@ -26,9 +31,6 @@ starting_direction = Vector2( 0, -1 )
 
 [node name="Remover" parent="Removers" index="0" instance=ExtResource( 2 )]
 position = Vector2( 1387.16, 502.247 )
-
-[node name="CRT_Shader" parent="GUI/DebugConsole" index="1"]
-visible = false
 
 [node name="Label" parent="." index="16"]
 visible = false
