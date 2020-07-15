@@ -13,5 +13,8 @@ func remove():
 	
 
 func _on_Remover_area_entered(area: Area2D) -> void:
-	queue_free()
-	area.owner.queue_free()
+	#queue_free()
+	if area.is_in_group("Traps"):
+		area.queue_free()
+	else:
+		area.owner.queue_free()

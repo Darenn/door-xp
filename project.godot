@@ -109,6 +109,7 @@ window/stretch/aspect="keep"
 2d_physics/layer_4="Doors"
 2d_physics/layer_5="Traps"
 2d_physics/layer_6="NMEs Hurtbox"
+2d_physics/layer_7="DataStorage"
 
 [rendering]
 

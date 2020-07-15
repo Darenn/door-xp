@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=5]
 
 [node name="main" instance=ExtResource( 3 )]
+next_level = "9_rootkit"
 hint = "Use the 'rm' command to kill the virus while its in the data storage."
 welcome_message = "Connected to '8_deadlock'.
 Restoration point created.

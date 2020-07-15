@@ -9,61 +9,85 @@ extents = Vector2( 15.5454, 6.42258 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11.5011, 11.8294 )
 
-[node name="Virus" type="Node2D"]
+[node name="Virus" type="Node2D" groups=[
+"Virus",
+]]
 script = ExtResource( 1 )
 speed = 53
 
-[node name="virus" type="Sprite" parent="."]
+[node name="virus" type="Sprite" parent="." groups=[
+"Virus",
+]]
 modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
-[node name="AreaRight" type="Area2D" parent="."]
+[node name="AreaRight" type="Area2D" parent="." groups=[
+"Virus",
+]]
 scale = Vector2( 0.03, 0.03 )
 collision_layer = 2
 collision_mask = 9
 
-[node name="CollisionRight" type="CollisionShape2D" parent="AreaRight"]
+[node name="CollisionRight" type="CollisionShape2D" parent="AreaRight" groups=[
+"Virus",
+]]
 position = Vector2( 1114.23, -47.9085 )
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 1 )
 
-[node name="AreaLeft" type="Area2D" parent="."]
+[node name="AreaLeft" type="Area2D" parent="." groups=[
+"Virus",
+]]
 scale = Vector2( 0.03, 0.03 )
 collision_layer = 2
 collision_mask = 9
 
-[node name="CollisionLeft" type="CollisionShape2D" parent="AreaLeft"]
+[node name="CollisionLeft" type="CollisionShape2D" parent="AreaLeft" groups=[
+"Virus",
+]]
 position = Vector2( -1225.38, -57.019 )
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 1 )
 
-[node name="AreaUp" type="Area2D" parent="."]
+[node name="AreaUp" type="Area2D" parent="." groups=[
+"Virus",
+]]
 scale = Vector2( 0.03, 0.03 )
 collision_layer = 2
 collision_mask = 9
 
-[node name="CollisionUp" type="CollisionShape2D" parent="AreaUp"]
+[node name="CollisionUp" type="CollisionShape2D" parent="AreaUp" groups=[
+"Virus",
+]]
 position = Vector2( 7.54053, -1134.39 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 1 )
 
-[node name="AreaDown" type="Area2D" parent="."]
+[node name="AreaDown" type="Area2D" parent="." groups=[
+"Virus",
+]]
 scale = Vector2( 0.03, 0.03 )
 collision_layer = 2
 collision_mask = 9
 
-[node name="CollisionDown" type="CollisionShape2D" parent="AreaDown"]
+[node name="CollisionDown" type="CollisionShape2D" parent="AreaDown" groups=[
+"Virus",
+]]
 position = Vector2( -11.8872, 1085.91 )
 rotation = 1.5708
 scale = Vector2( 33.3333, 33.3333 )
 shape = SubResource( 1 )
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=[
+"Virus",
+]]
 collision_layer = 32
 collision_mask = 20
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" groups=[
+"Virus",
+]]
 position = Vector2( -0.0586165, 1.59484 )
 shape = SubResource( 2 )
