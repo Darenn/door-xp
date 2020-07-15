@@ -20,7 +20,7 @@ border_color = Color( 1, 1, 1, 0.145098 )
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 38
+size = 42
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=5]
@@ -52,7 +52,7 @@ size = 10
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 length = 0.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Control:rect_position:x")
@@ -239,7 +239,7 @@ __meta__ = {
 [node name="ConsoleText" type="Control" parent="Control/VBoxContainer/ConsoleContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -59.0
+margin_bottom = -61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
@@ -265,8 +265,6 @@ margin_right = -4.0
 margin_bottom = -4.0
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[color=#ff00ff00]> [color=#ffb03061][/color]: /man help[/color]"
-text = "> : /man help"
 scroll_following = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -276,7 +274,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -59.0
+margin_top = -61.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -305,7 +303,7 @@ __meta__ = {
 
 [node name="ChannelSelector" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
 margin_right = 147.0
-margin_bottom = 59.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -334,7 +332,7 @@ __meta__ = {
 [node name="Input" type="Control" parent="Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer"]
 margin_left = 149.0
 margin_right = 1920.0
-margin_bottom = 59.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 12.0
@@ -349,8 +347,8 @@ margin_bottom = -8.0
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 8 )
 custom_colors/cursor_color = Color( 1, 1, 1, 1 )
-text = "> enter text here..."
 max_length = 30
+placeholder_text = ">"
 caret_blink = true
 caret_blink_speed = 0.5
 __meta__ = {
@@ -392,7 +390,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/slide_in = SubResource( 15 )
+anims/slide_in = SubResource( 13 )
 anims/slide_out = SubResource( 14 )
 
 [node name="ErrorPlayer" type="AudioStreamPlayer2D" parent="."]
