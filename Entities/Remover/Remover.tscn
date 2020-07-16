@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Remover/Remover.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Door/door_open.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/windows_command_prompt.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.8019, 49.0021 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
 
 [node name="Remover" type="Area2D" groups=[
 "AntiVirus",
@@ -36,6 +40,7 @@ margin_left = 20.9002
 margin_top = -8.29863
 margin_right = 53.9002
 margin_bottom = 13.7014
+custom_fonts/normal_font = SubResource( 2 )
 text = "R1"
 __meta__ = {
 "_edit_use_anchors_": false

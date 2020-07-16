@@ -7,7 +7,7 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 
 [node name="main" instance=ExtResource( 3 )]
-next_level = "10_trojans"
+next_level = "A_trojans"
 hint = "You can erase several virus with the data storage."
 welcome_message = "Connected to '9_rootkit'.
 Restoration point created.

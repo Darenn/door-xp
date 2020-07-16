@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Remover/Remover.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=5]
+
+[node name="main" instance=ExtResource( 2 )]
+
+[node name="FloorTileMap" parent="." index="4"]
+tile_data = PoolIntArray( 131087, 0, 0, 262165, 2, 0, 262166, 14, 0, 327695, 0, 0, 327700, 2, 0, 327701, 10, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 14, 0, 393231, 4, 0, 393235, 2, 0, 393236, 10, 0, 393237, 0, 0, 393238, 0, 0, 458761, 0, 0, 458767, 8, 0, 458768, 3, 0, 458769, 14, 0, 458770, 3, 0, 458771, 10, 0, 458774, 0, 0, 524297, 0, 0, 524304, 11, 0, 524306, 11, 0, 524310, 0, 0, 589833, 0, 0, 589839, 2, 0, 589840, 10, 0, 589842, 8, 0, 589843, 4, 0, 589846, 0, 0, 655374, 2, 0, 655375, 10, 0, 655379, 8, 0, 655380, 4, 0, 720909, 2, 0, 720910, 10, 0, 720916, 8, 0, 720917, 14, 0, 786444, 14, 0, 786445, 10, 0 )
+
+[node name="CollisionTileMap" parent="." index="5"]
+tile_data = PoolIntArray( 196629, 2, 0, 196630, 2, 0, 196631, 2, 0, 262164, 2, 0, 262167, 2, 0, 327693, 2, 0, 327694, 2, 0, 327695, 2, 0, 327696, 2, 0, 327699, 2, 0, 327702, 2, 0, 327703, 2, 0, 393229, 2, 0, 393232, 2, 0, 393233, 2, 0, 393234, 2, 0, 393237, 2, 0, 458765, 2, 0, 458766, 2, 0, 458772, 2, 0, 524302, 2, 0, 524303, 2, 0, 524305, 2, 0, 524307, 2, 0, 589837, 2, 0, 589838, 2, 0, 589841, 2, 0, 589844, 2, 0, 589845, 2, 0, 655372, 2, 0, 655373, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655381, 2, 0, 655382, 2, 0, 720908, 2, 0, 720911, 2, 0, 720912, 2, 0, 720914, 2, 0, 720915, 2, 0, 720918, 2, 0, 786443, 2, 0, 786446, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0 )
+
+[node name="ending" parent="." index="6" instance=ExtResource( 4 )]
+position = Vector2( 1746.06, 910.059 )
+
+[node name="ending2" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 1824.96, 356.387 )
+
+[node name="ending3" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 1105.07, 513.69 )
+
+[node name="ending4" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 941.826, 986.24 )
+
+[node name="Virus" parent="Viruses" index="0" instance=ExtResource( 1 )]
+position = Vector2( 1147.4, 506.672 )
+starting_direction = Vector2( 1, 0 )
+
+[node name="Virus3" parent="Viruses" index="1" instance=ExtResource( 1 )]
+position = Vector2( 1778.06, 355.466 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Virus4" parent="Viruses" index="2" instance=ExtResource( 1 )]
+position = Vector2( 1697.94, 909.886 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Virus2" parent="Viruses" index="3" instance=ExtResource( 1 )]
+position = Vector2( 990.202, 987.978 )
+starting_direction = Vector2( 1, 0 )
+
+[node name="Remover" parent="Removers" index="0" instance=ExtResource( 3 )]
+position = Vector2( 1227.39, 680.605 )
+id = "ds2"
+
+[node name="RichTextLabel" parent="Removers/Remover" index="2"]
+margin_left = -43.7665
+margin_right = -10.7665
+
+[node name="Remover2" parent="Removers" index="1" instance=ExtResource( 3 )]
+position = Vector2( 1385.07, 689.127 )
+rotation = -1.5708
+
+[node name="RichTextLabel" parent="Removers/Remover2" index="2"]
+margin_left = -24.7665
+margin_top = -20.2987
+margin_right = 8.23352
+margin_bottom = 1.70137
+rect_rotation = 90.0
+text = ""
+
+[node name="Remover3" parent="Removers" index="2" instance=ExtResource( 3 )]
+position = Vector2( 1384.45, 596.216 )
+rotation = -1.5708
+id = "ds3"
+
+[node name="RichTextLabel" parent="Removers/Remover3" index="2"]
+margin_left = 38.9002
+margin_top = -17.2986
+margin_right = 71.9002
+margin_bottom = 4.70142
+rect_rotation = 90.0
+text = ""
+
+[node name="Label" parent="." index="18"]
+visible = false
+
+[node name="Core" parent="." index="19" instance=ExtResource( 5 )]
+position = Vector2( 1382.72, 593.252 )
+[connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Removers/Remover"]
+
+[editable path="Removers/Remover2"]
+
+[editable path="Removers/Remover3"]
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]
