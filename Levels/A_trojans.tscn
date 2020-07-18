@@ -8,9 +8,8 @@
 [ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=7]
 
-
-
 [node name="main" instance=ExtResource( 1 )]
+next_level = "B_idle"
 hint = "Let the anti virus kill one of them, then remove th data storage at the good time."
 welcome_message = "Connected to '10_trojans'.
 Restoration point created.
