@@ -4,6 +4,8 @@
 [ext_resource path="res://Entities/Door/door_open.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/windows_command_prompt.ttf" type="DynamicFontData" id=3]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.8019, 49.0021 )
 

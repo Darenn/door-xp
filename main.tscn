@@ -18,6 +18,8 @@
 [ext_resource path="res://Musics/voices/error_03.ogg" type="AudioStream" id=16]
 [ext_resource path="res://Fonts/windows_command_prompt.ttf" type="DynamicFontData" id=17]
 
+
+
 [sub_resource type="Environment" id=1]
 background_mode = 4
 dof_blur_far_enabled = true

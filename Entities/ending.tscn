@@ -2,6 +2,8 @@
 
 [ext_resource path="res://Entities/Core/core_plain.png" type="Texture" id=1]
 
+
+
 [node name="ending" type="Sprite"]
 position = Vector2( 3536.45, 524.551 )
 scale = Vector2( 0.03, 0.03 )

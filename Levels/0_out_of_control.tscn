@@ -4,6 +4,8 @@
 [ext_resource path="res://Entities/Remover/Remover.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=3]
 
+
+
 [node name="main" instance=ExtResource( 1 )]
 next_level = "1_boot"
 hint = "No hint found."

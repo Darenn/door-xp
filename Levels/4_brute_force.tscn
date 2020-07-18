@@ -7,6 +7,8 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
+
+
 [node name="main" instance=ExtResource( 2 )]
 position = Vector2( -187, -21 )
 next_level = "5_userspace"

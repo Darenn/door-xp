@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Remover/Remover.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=5]
+
+[node name="main" instance=ExtResource( 2 )]
+
+[node name="Background" parent="." index="1"]
+position = Vector2( 959.134, 503.672 )
+
+[node name="FloorTileMap" parent="." index="4"]
+tile_data = PoolIntArray( 65554, 11, 0, 131087, 0, 0, 131090, 8, 0, 131091, 4, 0, 196627, 5, 0, 196628, 4, 0, 262159, 2, 0, 262160, 4, 0, 262162, 14, 0, 262163, 6, 0, 262164, 6, 0, 262165, 4, 0, 327695, 8, 0, 327696, 6, 0, 327697, 4, 0, 327699, 5, 0, 327700, 6, 0, 327701, 6, 0, 327702, 4, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 14, 0, 393230, 4, 0, 393231, 0, 0, 393232, 5, 0, 393233, 6, 0, 393234, 14, 0, 393235, 6, 0, 393236, 6, 0, 393237, 6, 0, 393238, 6, 0, 393239, 14, 0, 458761, 0, 0, 458766, 8, 0, 458767, 3, 0, 458768, 6, 0, 458769, 7, 0, 458771, 5, 0, 458772, 6, 0, 458773, 6, 0, 458774, 10, 0, 524297, 0, 0, 524303, 8, 0, 524304, 6, 0, 524305, 6, 0, 524306, 14, 0, 524307, 6, 0, 524308, 6, 0, 524309, 10, 0, 524310, 0, 0, 589833, 0, 0, 589840, 8, 0, 589841, 7, 0, 589843, 5, 0, 589844, 10, 0, 589846, 0, 0, 655377, 8, 0, 655378, 3, 0, 655379, 10, 0, 720914, 11, 0 )
+
+[node name="CollisionTileMap" parent="." index="5"]
+tile_data = PoolIntArray( 18, 2, 0, 65553, 2, 0, 65555, 2, 0, 131088, 2, 0, 131089, 2, 0, 131092, 2, 0, 196623, 2, 0, 196624, 2, 0, 196625, 2, 0, 196626, 2, 0, 196629, 2, 0, 262158, 2, 0, 262161, 2, 0, 262166, 2, 0, 327693, 2, 0, 327694, 2, 0, 327698, 2, 0, 327703, 2, 0, 393228, 2, 0, 393231, 2, 0, 393240, 2, 0, 458765, 2, 0, 458770, 2, 0, 458775, 2, 0, 524302, 2, 0, 524310, 2, 0, 589839, 2, 0, 589842, 2, 0, 589845, 2, 0, 655376, 2, 0, 655380, 2, 0, 720913, 2, 0, 720915, 2, 0, 786450, 2, 0 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
+position = Vector2( 1698.79, 513.659 )
+
+[node name="Label" parent="Doors/Door" index="3"]
+margin_left = -91.8717
+margin_top = -84.21
+margin_right = -12.8713
+margin_bottom = -21.21
+
+[node name="Door2" parent="Doors" index="1" instance=ExtResource( 3 )]
+position = Vector2( 1382.33, 828.356 )
+id = "d2"
+
+[node name="Door3" parent="Doors" index="2" instance=ExtResource( 3 )]
+position = Vector2( 1472.33, 513.356 )
+id = "d3"
+
+[node name="Virus" parent="Viruses" index="0" instance=ExtResource( 1 )]
+position = Vector2( 1853.53, 515.369 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Virus2" parent="Viruses" index="1" instance=ExtResource( 1 )]
+position = Vector2( 1463.24, 907.422 )
+starting_direction = Vector2( 0, -1 )
+
+[node name="Virus3" parent="Viruses" index="2" instance=ExtResource( 1 )]
+position = Vector2( 1067.67, 517.127 )
+starting_direction = Vector2( 1, 0 )
+
+[node name="Virus4" parent="Viruses" index="3" instance=ExtResource( 1 )]
+position = Vector2( 1459.72, 119.8 )
+
+[node name="Remover" parent="Removers" index="0" instance=ExtResource( 4 )]
+position = Vector2( 1464.96, 829.005 )
+rotation = 1.5708
+
+[node name="RichTextLabel" parent="Removers/Remover" index="2"]
+rect_rotation = -90.0
+
+[node name="Remover2" parent="Removers" index="1" instance=ExtResource( 4 )]
+position = Vector2( 1464.96, 198.937 )
+rotation = 1.5708
+id = "ds2"
+
+[node name="CollisionShape2D" parent="Removers/Remover2" index="1"]
+position = Vector2( -7.62939e-06, -1.84674 )
+
+[node name="RichTextLabel" parent="Removers/Remover2" index="2"]
+margin_left = 13.5135
+margin_top = 44.1483
+margin_right = 46.5135
+margin_bottom = 66.1483
+rect_rotation = -90.0
+text = ""
+
+[node name="Remover3" parent="Removers" index="2" instance=ExtResource( 4 )]
+position = Vector2( 1146.78, 508.432 )
+id = "ds3"
+
+[node name="Remover4" parent="Removers" index="3" instance=ExtResource( 4 )]
+position = Vector2( 1778.74, 503.263 )
+id = "ds4"
+
+[node name="CollisionShape2D" parent="Removers/Remover4" index="1"]
+position = Vector2( 0.420166, 0 )
+
+[node name="RichTextLabel" parent="Removers/Remover4" index="2"]
+margin_left = -5.98206
+margin_top = -70.1888
+margin_right = 27.0179
+margin_bottom = -48.1887
+text = ""
+
+[node name="Remover5" parent="Removers" index="4" instance=ExtResource( 4 )]
+position = Vector2( 1376.82, 542.034 )
+id = "ds5"
+
+[node name="RichTextLabel" parent="Removers/Remover5" index="2"]
+text = ""
+
+[node name="Label" parent="." index="14"]
+visible = false
+
+[node name="Core" parent="." index="15" instance=ExtResource( 5 )]
+position = Vector2( 1226.92, 344.398 )
+[connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Doors/Door"]
+
+[editable path="Removers/Remover"]
+
+[editable path="Removers/Remover2"]
+
+[editable path="Removers/Remover3"]
+
+[editable path="Removers/Remover4"]
+
+[editable path="Removers/Remover5"]
+
+[editable path="GUI"]
+
+[editable path="GUI/DebugConsole"]

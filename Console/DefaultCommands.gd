@@ -11,9 +11,9 @@ onready var cdNode : Node = get_node("/root")
 func set_default_commands(console):
 	consoleRef = console
 	
-	var exitRef = CommandRef.new(self, "exit", 0)
-	var exitCommand = ConsoleCommand.new('exit', exitRef, 'Closes the console.')
-	console.add_command(exitCommand)
+	#var exitRef = CommandRef.new(self, "exit", 0)
+	#var exitCommand = ConsoleCommand.new('exit', exitRef, 'Closes the console.')
+	#console.add_command(exitCommand)
 	
 	var clearRef = CommandRef.new(self, "clear", 0)
 	var clearCommand = ConsoleCommand.new('clear', clearRef, 'Clears the console.')
@@ -298,9 +298,6 @@ func show_default_commands():
 		consoleRef.write("%s%s" % [consoleRef.commandSign, consoleRef.commands[i].get_invoke_name()], \
 				ConsoleFlags.Type.NO_COMMANDS | ConsoleFlags.Type.CLICKABLE)
 		consoleRef.write(": %s" % consoleRef.commands[i].get_description())
-		consoleRef.write(" (args: ")
-		consoleRef.print_args(i)
-		consoleRef.write(")")
 		consoleRef.write_line("")
 
 
@@ -435,7 +432,5 @@ func help():
 		consoleRef.write("%s%s" % [consoleRef.commandSign, consoleRef.commands[i].get_invoke_name()], \
 				ConsoleFlags.Type.NO_COMMANDS | ConsoleFlags.Type.CLICKABLE)
 		consoleRef.write(": %s" % consoleRef.commands[i].get_description())
-		consoleRef.write(" (args: ")
-		consoleRef.print_args(i)
-		consoleRef.write(")")
+
 		

@@ -7,6 +7,8 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "connect"
 tracks/0/type = "value"
@@ -132,7 +134,7 @@ tracks/9/keys = {
 
 [node name="main" instance=ExtResource( 2 )]
 position = Vector2( -143, -28 )
-next_level = "2_floating_point"
+next_level = "3_pointers"
 hint = "Use the 'close' command to close the door d1."
 welcome_message = "Connected to '1_boot'. Restoration point created.
 [color=red]Virus[/color] are red triangles.
@@ -182,11 +184,11 @@ position = Vector2( 1536.72, 265.175 )
 position = Vector2( 1284.14, 558.205 )
 rotation = -3.14159
 
-[node name="AnimationPlayer" parent="." index="14"]
+[node name="AnimationPlayer" parent="." index="15"]
 autoplay = "connect"
 anims/connect = SubResource( 1 )
 
-[node name="Label" parent="." index="17"]
+[node name="Label" parent="." index="18"]
 visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
 

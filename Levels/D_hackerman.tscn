@@ -26,6 +26,9 @@ position = Vector2( 1545.77, 828.268 )
 position = Vector2( 1069.95, 825.751 )
 rotation = 1.5708
 
+[node name="CRT_Shader" parent="GUI/DebugConsole" index="1"]
+visible = false
+
 [editable path="GUI"]
 
 [editable path="GUI/DebugConsole"]

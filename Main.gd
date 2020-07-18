@@ -45,12 +45,12 @@ func _ready() -> void:
 	
 	# open [d1]
 	var openDoorRef = CommandRef.new(self, "_open_door", 1)
-	var openDoorCommand = ConsoleCommand.new("open", openDoorRef, "Open the given door (open d1)")
+	var openDoorCommand = ConsoleCommand.new("opn", openDoorRef, "Open the given door (opn d1)")
 	_console.add_command(openDoorCommand)
 	
 	# close [d1]
 	var closeDoorRef = CommandRef.new(self, "_close_door", 1)
-	var closeDoorCommand = ConsoleCommand.new("close", closeDoorRef, "Close the given door (close d1)")
+	var closeDoorCommand = ConsoleCommand.new("cls", closeDoorRef, "Close the given door (cls d1)")
 	_console.add_command(closeDoorCommand)
 	
 	# rm [r1]
@@ -157,7 +157,7 @@ func _on_Core_on_destroyed() -> void:
 	_is_lost = true
 	_animation_player.play("lost")
 	_lost_music_player.play()
-	_console_writer.error("System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system System out of control RESTORE the system")
+	_console_writer.error("SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. SYSTEM OUF OF CONTROL RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE RESTORE THE SYSTEM. ")
 	_voice_player.play_lost()
 
 func _on_Console_error() -> void:
