@@ -475,7 +475,8 @@ func _input(event):
 	if event is InputEventKey:
 		if event.is_pressed() and not event.is_echo():
 			if event.scancode == toggleConsoleKey:
-				toggle_console()
+				pass
+				# toggle_console() #don't want that for my game
 			if event.scancode == KEY_ENTER:
 				if not consoleLine.text.empty():
 					_on_Line_text_entered($Control/VBoxContainer/ConsoleContainer/InputLine/HBoxContainer/Input/Line.text)

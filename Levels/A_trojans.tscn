@@ -10,8 +10,8 @@
 
 [node name="main" instance=ExtResource( 1 )]
 next_level = "B_idle"
-hint = "Let the anti virus kill one of them, then remove th data storage at the good time."
-welcome_message = "Connected to '10_trojans'.
+hint = "Let the anti virus kill one of them, then remove the data storage at the good time. Be careful, Anti-virus are deleted with de data storage."
+welcome_message = "Connected to 'A_trojans'.
 Restoration point created.
 Ready to boot."
 
@@ -35,6 +35,12 @@ position = Vector2( 941.769, 828.88 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1602.39, 433.966 )
+
+[node name="Label" parent="Doors/Door" index="3"]
+margin_left = -37.0807
+margin_top = -95.0
+margin_right = 41.9197
+margin_bottom = -32.0
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 3 )]
 position = Vector2( 1034.1, 828.281 )
@@ -64,6 +70,8 @@ position = Vector2( 1664.11, 436.229 )
 position = Vector2( 942.004, 828.86 )
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
 [connection signal="on_destroyed" from="Core2" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Doors/Door"]
 
 [editable path="Removers/Remover"]
 

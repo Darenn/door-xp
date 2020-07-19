@@ -25,8 +25,10 @@ func open() -> void:
 
 
 func _on_DetectionArea_area_entered(_area: Area2D) -> void:
-	can_close = false
+	if (_area.is_in_group("VirusHurt")):
+		can_close = false
 
 
 func _on_DetectionArea_area_exited(_area: Area2D) -> void:
-	can_close = true
+	if (_area.is_in_group("VirusHurt")):
+		can_close = true

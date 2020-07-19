@@ -58,12 +58,20 @@ func _ready() -> void:
 	var rmCommand = ConsoleCommand.new("rm", rmRef, "Removes all virus in the data storage (rm ds1)")
 	_console.add_command(rmCommand)
 	
+	# exit
+	var exitRef = CommandRef.new(self, "_exit", 0)
+	var exitCommand = ConsoleCommand.new("exit", exitRef, "Exit the application.")
+	_console.add_command(exitCommand)
+	
 	_animation_player.play("connect")
 	_voice_player.play_connected()
 	
 	for antivirus in _traps.get_children():
 		antivirus.connect("virus_killed", self, "_on_Virus_killed")
-		
+
+func _exit():
+	get_tree().quit()
+
 func _rm(id):
 	id = id.to_lower()
 	for ds in _removers.get_children():
@@ -100,7 +108,7 @@ func _start() -> void:
 		_console_writer.success("Booting... boot completed.")
 		
 func _load(level: String) -> void:
-	var path = "res://Levels/%s.tscn" % level.to_lower()
+	var path = "res://Levels/%s.tscn" % level
 	if File.new().file_exists(path):
 		get_tree().change_scene(path)
 		_animation_player.play("connect")

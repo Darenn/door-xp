@@ -7,8 +7,6 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
-
-
 [node name="main" instance=ExtResource( 2 )]
 position = Vector2( -187, -21 )
 next_level = "5_userspace"
@@ -48,19 +46,19 @@ position = Vector2( 1719.14, 368.737 )
 id = "d2"
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 5 )]
-position = Vector2( 1324.96, 367.768 )
+position = Vector2( 1399.96, 367.768 )
 starting_direction = Vector2( 1, 0 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
-position = Vector2( 1482.26, 683.561 )
+position = Vector2( 1532.26, 683.561 )
 
-[node name="GUI" parent="." index="12"]
+[node name="GUI" parent="." index="13"]
 margin_left = 153.578
 margin_top = 19.4686
 margin_right = 153.578
 margin_bottom = 19.4686
 
-[node name="Label" parent="." index="16"]
+[node name="Label" parent="." index="17"]
 visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
 

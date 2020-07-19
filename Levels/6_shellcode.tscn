@@ -7,8 +7,6 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "lost"
 length = 0.5
@@ -183,16 +181,22 @@ id = "d2"
 position = Vector2( 1553.03, 274.239 )
 id = "d5"
 
+[node name="Label" parent="Doors/Door5" index="3"]
+margin_left = -106.081
+margin_top = -61.0
+margin_right = -27.0803
+margin_bottom = 2.0
+
 [node name="Door6" parent="Doors" index="5" instance=ExtResource( 3 )]
 position = Vector2( 1315.39, 270.369 )
 id = "d4"
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 5 )]
-position = Vector2( 1708.89, 824.28 )
+position = Vector2( 1708.89, 806.28 )
 starting_direction = Vector2( 0, -1 )
 
 [node name="Virus2" parent="Viruses" index="1" instance=ExtResource( 5 )]
-position = Vector2( 1155.65, 824.28 )
+position = Vector2( 1155.65, 799.28 )
 starting_direction = Vector2( 0, -1 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
@@ -201,13 +205,15 @@ position = Vector2( 1469.28, 503.398 )
 [node name="BlackHole2" parent="Traps" index="1" instance=ExtResource( 4 )]
 position = Vector2( 1387.47, 505.603 )
 
-[node name="AnimationPlayer" parent="." index="14"]
+[node name="AnimationPlayer" parent="." index="15"]
 anims/lost = SubResource( 1 )
 
-[node name="Label" parent="." index="17"]
+[node name="Label" parent="." index="18"]
 visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
 [connection signal="on_destroyed" from="Core2" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Doors/Door5"]
 
 [editable path="GUI"]
 

@@ -193,23 +193,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 475.064, 797.799 )
-frames = SubResource( 33 )
-
-[node name="1280px-Godot_logosvg" type="Sprite" parent="AnimatedSprite"]
-position = Vector2( 890.455, -12.6075 )
-scale = Vector2( 0.644483, 0.644483 )
+[node name="1280px-Godot_logosvg" type="Sprite" parent="."]
+position = Vector2( 1642.99, 962.174 )
+scale = Vector2( 0.33052, 0.33052 )
 texture = ExtResource( 8 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 979.704, 563.417 )
+frames = SubResource( 33 )
+
 [node name="ZgF6D_" type="Sprite" parent="."]
-position = Vector2( 1347.24, 328.007 )
-scale = Vector2( 0.480399, 0.4804 )
+position = Vector2( 1657.74, 160.591 )
+scale = Vector2( 0.271564, 0.271565 )
 texture = ExtResource( 2 )
 
 [node name="logo" type="Sprite" parent="."]
-position = Vector2( 482.039, 326.988 )
-scale = Vector2( 1.17052, 1.20944 )
+position = Vector2( 307.985, 223.963 )
+scale = Vector2( 1.22043, 1.26116 )
 texture = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="logo"]

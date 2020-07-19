@@ -1,25 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=2]
-[ext_resource path="res://main.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Entities/Remover/Remover.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Remover/Remover.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Core/Core.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
-[node name="main" instance=ExtResource( 3 )]
+[node name="main" instance=ExtResource( 4 )]
 next_level = "D_overclock"
+hint = "Keep d2 closed until the last moment."
+welcome_message = "Connected to 'C_ddrs_dram'.
+Restoration point created.
+Ready to boot."
 
 [node name="FloorTileMap" parent="." index="4"]
-tile_data = PoolIntArray( 131087, 0, 0, 262165, 11, 0, 327695, 0, 0, 327701, 11, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393237, 11, 0, 393238, 0, 0, 458761, 0, 0, 458765, 14, 0, 458766, 14, 0, 458767, 14, 0, 458768, 14, 0, 458769, 3, 0, 458770, 14, 0, 458771, 14, 0, 458773, 11, 0, 458774, 0, 0, 524297, 0, 0, 524305, 11, 0, 524309, 11, 0, 524310, 0, 0, 589833, 0, 0, 589837, 2, 0, 589838, 14, 0, 589839, 14, 0, 589840, 14, 0, 589841, 9, 0, 589842, 14, 0, 589843, 4, 0, 589845, 11, 0, 589846, 0, 0, 655373, 8, 0, 655374, 14, 0, 655375, 14, 0, 655376, 14, 0, 655377, 14, 0, 655378, 14, 0, 655379, 10, 0, 655381, 11, 0 )
+tile_data = PoolIntArray( 131087, 0, 0, 196629, 11, 0, 262165, 11, 0, 327695, 0, 0, 327701, 11, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 0, 0, 393237, 11, 0, 393238, 0, 0, 458761, 0, 0, 458765, 14, 0, 458766, 14, 0, 458767, 14, 0, 458768, 14, 0, 458769, 3, 0, 458770, 14, 0, 458771, 14, 0, 458773, 11, 0, 458774, 0, 0, 524297, 0, 0, 524305, 11, 0, 524309, 11, 0, 524310, 0, 0, 589833, 0, 0, 589837, 2, 0, 589838, 14, 0, 589839, 14, 0, 589840, 14, 0, 589841, 9, 0, 589842, 14, 0, 589843, 4, 0, 589845, 11, 0, 589846, 0, 0, 655373, 8, 0, 655374, 14, 0, 655375, 14, 0, 655376, 14, 0, 655377, 14, 0, 655378, 14, 0, 655379, 10, 0, 655381, 11, 0 )
 
 [node name="CollisionTileMap" parent="." index="5"]
-tile_data = PoolIntArray( 196628, 2, 0, 196629, 2, 0, 196630, 2, 0, 262164, 2, 0, 262166, 2, 0, 327700, 2, 0, 327702, 2, 0, 393228, 2, 0, 393229, 2, 0, 393230, 2, 0, 393231, 2, 0, 393232, 2, 0, 393233, 2, 0, 393234, 2, 0, 393235, 2, 0, 393236, 2, 0, 393238, 2, 0, 458764, 2, 0, 458772, 2, 0, 458774, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524310, 2, 0, 589836, 2, 0, 589844, 2, 0, 589846, 2, 0, 655372, 2, 0, 655380, 2, 0, 655382, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720914, 2, 0, 720915, 2, 0, 720916, 2, 0, 720917, 2, 0, 720918, 2, 0 )
+tile_data = PoolIntArray( 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 196628, 2, 0, 196630, 2, 0, 262164, 2, 0, 262166, 2, 0, 327700, 2, 0, 327702, 2, 0, 393228, 2, 0, 393229, 2, 0, 393230, 2, 0, 393231, 2, 0, 393232, 2, 0, 393233, 2, 0, 393234, 2, 0, 393235, 2, 0, 393236, 2, 0, 393238, 2, 0, 458764, 2, 0, 458772, 2, 0, 458774, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524310, 2, 0, 589836, 2, 0, 589844, 2, 0, 589846, 2, 0, 655372, 2, 0, 655380, 2, 0, 655382, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720914, 2, 0, 720915, 2, 0, 720916, 2, 0, 720917, 2, 0, 720918, 2, 0 )
 
-[node name="Door" parent="Doors" index="0" instance=ExtResource( 4 )]
+[node name="ending" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 1014.11, 593.909 )
+
+[node name="ending4" parent="." index="7" instance=ExtResource( 6 )]
+position = Vector2( 1596.77, 593.086 )
+
+[node name="ending2" parent="." index="8" instance=ExtResource( 6 )]
+position = Vector2( 1699.53, 227.982 )
+
+[node name="ending3" parent="." index="9" instance=ExtResource( 6 )]
+position = Vector2( 1698.97, 869.057 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 2 )]
 position = Vector2( 1461.99, 594.048 )
 
-[node name="Door2" parent="Doors" index="1" instance=ExtResource( 4 )]
-position = Vector2( 1699.93, 459.258 )
+[node name="Label" parent="Doors/Door" index="3"]
+margin_left = -42.0807
+margin_top = -96.0
+margin_right = 36.9197
+margin_bottom = -33.0
+
+[node name="Door2" parent="Doors" index="1" instance=ExtResource( 2 )]
+position = Vector2( 1699.93, 365.771 )
 id = "d2"
 
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 1 )]
@@ -30,9 +53,9 @@ position = Vector2( 1064.7, 593.08 )
 starting_direction = Vector2( 1, 0 )
 
 [node name="Virus3" parent="Viruses" index="2" instance=ExtResource( 1 )]
-position = Vector2( 1698.92, 366.743 )
+position = Vector2( 1698.92, 283.688 )
 
-[node name="Remover" parent="Removers" index="0" instance=ExtResource( 5 )]
+[node name="Remover" parent="Removers" index="0" instance=ExtResource( 3 )]
 position = Vector2( 1385.04, 773.662 )
 
 [node name="RichTextLabel" parent="Removers/Remover" index="2"]
@@ -41,7 +64,7 @@ margin_top = -42.2986
 margin_right = 51.2335
 margin_bottom = -20.2986
 
-[node name="Remover2" parent="Removers" index="1" instance=ExtResource( 5 )]
+[node name="Remover2" parent="Removers" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1716.62, 736.447 )
 rotation = 1.5708
 id = "ds2"
@@ -54,16 +77,25 @@ margin_bottom = 11.2632
 rect_rotation = -90.0
 text = ""
 
-[node name="Label" parent="." index="14"]
+[node name="CRT_Shader" parent="GUI/DebugConsole" index="1"]
 visible = false
 
-[node name="Core" parent="." index="15" instance=ExtResource( 2 )]
-position = Vector2( 1531.29, 832.542 )
+[node name="Label" parent="." index="18"]
+visible = false
 
-[node name="Core2" parent="." index="16" instance=ExtResource( 2 )]
-position = Vector2( 1696.55, 826.3 )
+[node name="Core" parent="." index="19" instance=ExtResource( 5 )]
+position = Vector2( 1537.29, 831.25 )
+
+[node name="Core3" parent="." index="20" instance=ExtResource( 5 )]
+position = Vector2( 1545.89, 594.578 )
+
+[node name="Core2" parent="." index="21" instance=ExtResource( 5 )]
+position = Vector2( 1698.55, 826.3 )
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+[connection signal="on_destroyed" from="Core3" to="." method="_on_Core_on_destroyed"]
 [connection signal="on_destroyed" from="Core2" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Doors/Door"]
 
 [editable path="Removers/Remover"]
 

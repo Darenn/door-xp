@@ -7,8 +7,6 @@
 [ext_resource path="res://Entities/Viruses/Virus.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/ending.tscn" type="PackedScene" id=6]
 
-
-
 [node name="main" instance=ExtResource( 1 )]
 position = Vector2( -96, -1 )
 next_level = "4_brute_force"
@@ -18,7 +16,7 @@ Restoration point created.
 Ready to boot."
 
 [node name="Background" parent="." index="1"]
-position = Vector2( 1055.4, 547.181 )
+position = Vector2( 1058.9, 547.181 )
 
 [node name="TileMap" parent="." index="3"]
 position = Vector2( 95, 0 )
@@ -34,7 +32,7 @@ position = Vector2( 1763.79, 484.402 )
 position = Vector2( 1042.79, 484.402 )
 
 [node name="ending3" parent="." index="7" instance=ExtResource( 6 )]
-position = Vector2( 1480.79, 761.402 )
+position = Vector2( 1476.79, 761.402 )
 
 [node name="CollisionTileMap" parent="." index="8"]
 position = Vector2( -299.455, -267.654 )
@@ -46,23 +44,29 @@ position = Vector2( 1399.6, 323.98 )
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 1478.48, 483.697 )
 
+[node name="Label" parent="Doors/Door" index="3"]
+margin_top = -87.0
+margin_bottom = -24.0
+
 [node name="Virus" parent="Viruses" index="0" instance=ExtResource( 5 )]
-position = Vector2( 1091.2, 483.673 )
+position = Vector2( 1113.2, 483.673 )
 starting_direction = Vector2( 1, 0 )
 
 [node name="Virus2" parent="Viruses" index="1" instance=ExtResource( 5 )]
-position = Vector2( 1479.11, 713.779 )
+position = Vector2( 1479.11, 695.779 )
 starting_direction = Vector2( 0, -1 )
 
 [node name="BlackHole" parent="Traps" index="0" instance=ExtResource( 4 )]
-position = Vector2( 1708.88, 484.571 )
+position = Vector2( 1666.88, 484.571 )
 
 [node name="BlackHole2" parent="Traps" index="1" instance=ExtResource( 4 )]
 position = Vector2( 1556.09, 560.173 )
 
-[node name="Label" parent="." index="17"]
+[node name="Label" parent="." index="18"]
 visible = false
 [connection signal="on_destroyed" from="Core" to="." method="_on_Core_on_destroyed"]
+
+[editable path="Doors/Door"]
 
 [editable path="GUI"]
 
